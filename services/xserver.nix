@@ -11,25 +11,30 @@
       };
     };
 
-    displayManager.lightdm.greeters.mini = {
-      enable = true;
-      user   = "rcx";
+    displayManager.lightdm = {
+      greeters.mini = {
+        enable = true;
+        user   = "rcx";
+        extraConfig = ''
+          [greeter]
+	  show-password-label = false
+	  [greeter-theme]
+	  font = "Overpass SemiBold"
+	  font-size = 12px
+	  text-color = "#cdd6f4"
+	  background-color = "#11111b"
+	  window-color = "#1e1e2e"
+	  border-color = "#b4befe"
+	  border-width = 2px
+	  layout-space = 15
+	  password-color = "#b4befe"
+	  password-background-color = "#45475A"
+	  passowrd-border-width = 0
+	  background-image = ""
+        '';
+      };
       extraConfig = ''
-        [greeter]
-	show-password-label = false
-	[greeter-theme]
-	font = "Overpass SemiBold"
-	font-size = 12px
-	text-color = "#cdd6f4"
-	background-color = "#11111b"
-	window-color = "#1e1e2e"
-	border-color = "#b4befe"
-	border-width = 2px
-	layout-space = 15
-	password-color = "#b4befe"
-	password-background-color = "#45475A"
-	passowrd-border-width = 0
-	background-image = ""
+        user-authority-in-system-dir = true
       '';
     };
 

@@ -54,7 +54,19 @@
   # Environment packages/variables
   environment.binsh = "${pkgs.dash}/bin/dash";
   environment.sessionVariables = rec {
+    # XDG Base Directory Specification
+    XDG_CACHE_HOME  = "$HOME/.cache";
+    XDG_CONFIG_HOME = "$HOME/.config";
+    XDG_DATA_HOME   = "$HOME/.local/share";
+    XDG_STATE_HOME  = "$HOME/.local/state";
+
+    # Use GPG-agent for SSH
     SSH_AUTH_SOCK = "/run/user/1000/gnupg/S.gpg-agent.ssh";
+
+    XCOMPOSECACHE = "${XDG_CACHE_HOME}";
+    XCOMPOSEFILE  = "${XCOMPOSECACHE}/.XCompose";
+
+    __GL_SHADER_DISK_CACHE_PATH = "${XDG_CACHE_HOME}";
   };
   environment.systemPackages = with pkgs; [
     dash

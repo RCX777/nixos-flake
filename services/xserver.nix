@@ -1,4 +1,8 @@
 { inputs, lib, config, pkgs, ...}: {
+  imports = [
+    ./xmonad/xmonad.nix
+  ];
+
   services.xserver = {
     enable = true;
 
@@ -38,11 +42,6 @@
 #      extraConfig = ''
 #        user-authority-in-system-dir = true
 #      '';
-    };
-
-    windowManager.xmonad = {
-      enable = true;
-      enableContribAndExtras = true;
     };
   };
 }

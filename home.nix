@@ -15,6 +15,11 @@
     homeDirectory = "/home/rcx";
   };
 
+  home.file."Media/Images/Wallpapers" = {
+    source    = ./wallpapers;
+    recursive = true;
+  };
+
   home.packages = with pkgs; [
     haskellPackages.haskell-language-server
     haskellPackages.haskell-debug-adapter

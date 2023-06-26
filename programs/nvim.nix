@@ -9,6 +9,8 @@
       plenary-nvim
       telescope-nvim
       nvim-dap
+      nerdtree
+      nerdtree-git-plugin
     ];
   };
 }

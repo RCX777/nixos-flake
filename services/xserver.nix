@@ -33,9 +33,11 @@
 	  background-image = ""
         '';
       };
-      extraConfig = ''
-        user-authority-in-system-dir = true
-      '';
+      # Currently commented out, as it breaks lutris
+      # See https://github.com/NixOS/nixpkgs/issues/239054
+#      extraConfig = ''
+#        user-authority-in-system-dir = true
+#      '';
     };
 
     windowManager.xmonad = {

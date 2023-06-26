@@ -5,6 +5,7 @@
     ./programs/git.nix
     ./programs/gpg.nix
     ./programs/ssh.nix
+    ./programs/nvim.nix
   ];
 
   home = {
@@ -16,26 +17,19 @@
     haskellPackages.haskell-language-server
     haskellPackages.haskell-debug-adapter
 
+    ihp-new # For generating new IHP projects
+    direnv
+    gnumake
+
     firefox
     lutris
     discord
+
+    prismlauncher
   ];
   
   # Enable home-manager and git
   programs.home-manager.enable = true;
-
-  programs.neovim = {
-    enable        = true;
-    defaultEditor = true;
-    vimAlias      = true;
-
-    plugins = with pkgs.vimPlugins; [
-      haskell-tools-nvim
-      plenary-nvim
-      telescope-nvim
-      nvim-dap
-    ];
-  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

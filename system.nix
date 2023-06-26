@@ -63,6 +63,8 @@
     # Use GPG-agent for SSH
     SSH_AUTH_SOCK = "/run/user/1000/gnupg/S.gpg-agent.ssh";
 
+    HISTFILE = "${XDG_STATE_HOME}/bash/history";
+
     XCOMPOSECACHE = "${XDG_CACHE_HOME}";
     XCOMPOSEFILE  = "${XCOMPOSECACHE}/.XCompose";
 
@@ -77,6 +79,7 @@
     feh
     ghc
     rofi
+    cachix
 
     man-pages
     man-pages-posix

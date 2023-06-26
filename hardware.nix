@@ -10,12 +10,16 @@
       availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" ]; 
       kernelModules = [ ];
     };
+
     kernelModules = [ "kvm-intel" "nvidia" "nvidia_uvm" "nvidia_drm" "nvidia_modeset" ];
     extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+
+    kernelParams = [ "nosgx" ];
 
     extraModprobeConfig = ''
       options nvidia-drm modeset=1
       options snd_hda_intel model=asus-zenbook
+      blacklist i2c_nvidia_gpu
     '';
 
     loader.systemd-boot.enable = true;

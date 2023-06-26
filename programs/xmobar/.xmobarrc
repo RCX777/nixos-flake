@@ -1,0 +1,21 @@
+Config {
+  font = "Overpass SemiBold 11"
+, additionalFonts = [ "Font Awesome 6 Free Solid 10"
+                    , "Font Awesome 6 Brands 10"
+		    ]
+, bgColor = "#11111b"
+, fgColor = "#cdd6f4"
+, position = Top
+, lowerOnStart = True
+, commands = [ Run Cpu ["-t", "<fn=1>\xf108</fn>  (<total>%)","-H","50","--high","#f38ba8"] 20
+             , Run Memory ["-t", "<fn=1>\xf233</fn>  <used>M (<usedratio>%)"] 20
+             , Run Date "<fn=1>\xf017</fn>  %b %d %Y - (%H:%M) " "date" 50
+	     , Run DiskU [("/", "<fn=1>\xf0c7</fn> <free> free")] [] 60
+	     , Run BatteryP ["BAT0"] ["-t", "<acstatus> (<left>%)"] 360
+	     , Run Com "echo" ["<fn=1>\xf242</fn>"] "baticon" 3600
+	     , Run StdinReader
+             ]
+, sepChar = "%"
+, alignSep = "}{"
+, template = " %StdinReader% }{    <box type=Bottom width=0 mb=2 color=#f9e2af><fc=#f9e2af><action=`alacritty -e htop`>%cpu%</action></fc></box>    <box type=Bottom width=0 mb=2 color=#f38ba8><fc=#f38ba8><action=`alacritty -e htop`>%memory%</action></fc></box>    <box type=Bottom width=0 mb=2 color=#cba6f7><fc=#cba6f7>%disku%</fc></box>    <box type=Bottom width=0 mb=2 color=#eba0ac><fc=#eba0ac>%baticon%  %battery%</fc></box>    <box type=Bottom width=0 mb=2 color=#74c7ec><fc=#74c7ec>%date%</fc></box>"
+}

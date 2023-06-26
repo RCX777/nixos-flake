@@ -74,7 +74,6 @@
     dash
     killall
 
-    haskellPackages.xmobar
     xdotool
     feh
     ghc

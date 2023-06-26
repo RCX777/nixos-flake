@@ -7,6 +7,7 @@
     ./programs/ssh.nix
     ./programs/nvim.nix
     ./programs/rofi/rofi.nix
+    ./programs/xmobar/xmobar.nix
   ];
 
   home = {

@@ -78,7 +78,6 @@
     xdotool
     feh
     ghc
-    rofi
     cachix
 
     man-pages

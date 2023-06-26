@@ -6,6 +6,7 @@
     ./programs/gpg.nix
     ./programs/ssh.nix
     ./programs/nvim.nix
+    ./programs/rofi/rofi.nix
   ];
 
   home = {

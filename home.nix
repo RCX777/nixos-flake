@@ -23,6 +23,7 @@
   home.packages = with pkgs; [
     haskellPackages.haskell-language-server
     haskellPackages.haskell-debug-adapter
+    haskellPackages.hoogle
 
     ihp-new # For generating new IHP projects
     direnv
@@ -30,7 +31,7 @@
 
     firefox
     lutris
-    discord
+    (discord.override { withOpenASAR = true; })
 
     prismlauncher
   ];

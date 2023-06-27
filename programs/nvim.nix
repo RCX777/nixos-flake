@@ -8,9 +8,11 @@
       haskell-tools-nvim
       plenary-nvim
       telescope-nvim
+      telescope_hoogle
       nvim-dap
       nerdtree
       nerdtree-git-plugin
+      catppuccin-nvim
     ];
   };
 }

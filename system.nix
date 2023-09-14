@@ -29,6 +29,11 @@
     };
   };
 
+# Uncomment for Gnome
+#  services.xserver.desktopManager.gnome.enable = true;
+#  services.xserver.displayManager.gdm.enable = true;
+#  hardware.pulseaudio.enable = false;
+
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
@@ -65,10 +70,16 @@
 
     HISTFILE = "${XDG_STATE_HOME}/bash/history";
 
+    CUDA_CACHE_PATH = "${XDG_CACHE_HOME}/nv";
+
+    _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=\"${XDG_CONFIG_HOME}\"/java";
+
     XCOMPOSECACHE = "${XDG_CACHE_HOME}";
     XCOMPOSEFILE  = "${XCOMPOSECACHE}/.XCompose";
 
     __GL_SHADER_DISK_CACHE_PATH = "${XDG_CACHE_HOME}";
+
+    ERRFILE = "${XDG_CACHE_HOME}/X11/xsession-errors";
   };
   environment.systemPackages = with pkgs; [
     dash

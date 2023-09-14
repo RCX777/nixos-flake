@@ -8,6 +8,7 @@
     ./programs/nvim.nix
     ./programs/rofi/rofi.nix
     ./programs/xmobar/xmobar.nix
+    ./programs/vscodium.nix
   ];
 
   home = {
@@ -31,6 +32,7 @@
 
     firefox
     lutris
+    steam
     (discord.override { withOpenASAR = true; })
 
     prismlauncher

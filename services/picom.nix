@@ -10,7 +10,7 @@
         deviation  = 15.0;
       };
 
-      corner.radius = 8;
+      corner.radius = 12;
     };
 
     backend = "glx";

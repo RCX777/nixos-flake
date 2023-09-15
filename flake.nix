@@ -23,14 +23,14 @@
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         # > Our main nixos configuration file <
         modules = [
-	  ./system.nix
-	  home-manager.nixosModules.home-manager
-	  {
-	    home-manager.useGlobalPkgs   = true;
-	    home-manager.useUserPackages = true;
-	    home-manager.users.rcx       = import ./home.nix;
-	  }
-	];
+          ./system.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs   = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.rcx       = import ./home.nix;
+          }
+        ];
       };
     };
   };

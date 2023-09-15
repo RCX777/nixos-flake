@@ -23,6 +23,10 @@
   };
 
   home.packages = with pkgs; [
+    (polybar.override { pulseSupport = true; })
+    pavucontrol
+    pamixer
+
     haskellPackages.haskell-language-server
     haskellPackages.haskell-debug-adapter
     haskellPackages.hoogle

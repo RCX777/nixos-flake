@@ -30,50 +30,41 @@ toggleStrutsKey XConfig { XMonad.modMask = modMask } = (modMask, xK_b)
 
 main :: IO ()
 main = do
-       xmonad . ewmhFullscreen . ewmh =<< statusBar "xmobar" sjanssenPP toggleStrutsKey (def
+       xmonad $ docks $ ewmhFullscreen $ ewmh $ def
         { modMask            = mod4Mask      -- Rebind Mod to the Super key
         , startupHook        = myStartupHook
         , focusFollowsMouse  = True
         , clickJustFocuses   = False
-        , layoutHook         = avoidStruts $ smartBorders myLayout      -- Use custom layouts
+        , layoutHook         = smartBorders $ avoidStruts myLayout
         , manageHook         = myManageHook  -- Match on certain windows
         , terminal           = "alacritty"
         , borderWidth        = 2
         , focusedBorderColor = "#cba6f7"
         , normalBorderColor  = "#b4befe"
         , handleEventHook    = swallowEventHook (className =? "Alacritty") (return True)
-        , workspaces         = withScreens 2 ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        , workspaces         = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
         }
         `additionalKeysP`
         [ ("M-w"  , spawn "firefox"                   )
         , ("M-e"  , spawn "alacritty"                 )
-        , ("M-r"  , spawn "killall xmobar; xmonad --restart")
+        , ("M-b"  , sendMessage ToggleStruts)
+        , ("M-r"  , spawn "killall polybar; xmonad --restart")
         , ("M-`"  , spawn "rofi -show drun"           )
-        , ("M-<Left>", moveTo Prev workspaceOnCurrentScreen)
-        , ("M-<Right>", moveTo Next workspaceOnCurrentScreen)
-        , ("M-f",   withFocused toggleFloat)
-        , ("<Print>", spawn "flameshot gui")
-        ])
+        , ("M-f",   withFocused toggleFloat           )
+        , ("<Print>", spawn "flameshot gui"           )
+        , ("<XF86AudioLowerVolume>", spawn "pamixer -d 2")
+        , ("<XF86AudioRaiseVolume>", spawn "pamixer -i 2")
+        ]
 
 toggleFloat w = windows (\s -> if M.member w (W.floating s)
                 then W.sink w s
                 else (W.float w (W.RationalRect 0 0 1 1) s))
 
-currentScreen :: X ScreenId
-currentScreen = gets (W.screen . W.current . windowset)
-
-isOnScreen :: ScreenId -> WindowSpace -> Bool
-isOnScreen s ws = s == unmarshallS (W.tag ws)
-
-workspaceOnCurrentScreen :: WSType
-workspaceOnCurrentScreen = WSIs $ do
-    s <- currentScreen
-    return $ \x -> W.tag x /= "NSP" && isOnScreen s x
-
 myStartupHook :: X ()
 myStartupHook = do
     spawnOnce "rm -f $HOME/.xsession-errors*"
     spawnOnce "feh --no-fehbg --bg-scale ~/Media/Images/Wallpapers/forest.png"
+    spawn     "polybar -c .config/polybar/config.ini"
     spawnOnce "xrandr --output HDMI-0 --mode 1920x1080 --rate 165 --primary --right-of eDP-1-1 --output eDP-1-1 --auto"
 
 myManageHook :: ManageHook

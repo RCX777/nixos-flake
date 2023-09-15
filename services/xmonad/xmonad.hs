@@ -47,16 +47,17 @@ main = do
         `additionalKeysP`
         [ ("M-w"  , spawn "firefox"                   )
         , ("M-e"  , spawn "alacritty"                 )
-        , ("M-r"  , spawn "killall xmobar; xmonad --recompile; xmonad --restart")
+        , ("M-r"  , spawn "killall xmobar; xmonad --restart")
         , ("M-`"  , spawn "rofi -show drun"           )
         , ("M-<Left>", moveTo Prev workspaceOnCurrentScreen)
         , ("M-<Right>", moveTo Next workspaceOnCurrentScreen)
-	, ("M-f",   withFocused toggleFloat)
+        , ("M-f",   withFocused toggleFloat)
+        , ("<Print>", spawn "flameshot gui")
         ])
 
 toggleFloat w = windows (\s -> if M.member w (W.floating s)
                 then W.sink w s
-                else (W.float w (W.RationalRect (1/3) (1/4) (1/2) (4/5)) s))
+                else (W.float w (W.RationalRect 0 0 1 1) s))
 
 currentScreen :: X ScreenId
 currentScreen = gets (W.screen . W.current . windowset)
@@ -71,6 +72,7 @@ workspaceOnCurrentScreen = WSIs $ do
 
 myStartupHook :: X ()
 myStartupHook = do
+    spawnOnce "rm -f $HOME/.xsession-errors*"
     spawnOnce "feh --no-fehbg --bg-scale ~/Media/Images/Wallpapers/forest.png"
     spawnOnce "xrandr --output HDMI-0 --mode 1920x1080 --rate 165 --primary --right-of eDP-1-1 --output eDP-1-1 --auto"
 

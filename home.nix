@@ -6,6 +6,7 @@
     ./programs/gpg.nix
     ./programs/ssh.nix
     ./programs/nvim.nix
+    ./programs/bash.nix
     ./programs/rofi/rofi.nix
     ./programs/xmobar/xmobar.nix
     ./programs/vscodium.nix
@@ -34,6 +35,8 @@
     lutris
     steam
     (discord.override { withOpenASAR = true; })
+    flameshot # Screenshot utility
+    gamescope
 
     prismlauncher
   ];

@@ -10,7 +10,12 @@
         deviation  = 15.0;
       };
 
-      corner.radius = 12;
+      corner-radius = 12.0;
+      round-borders = 1;
+
+      rounded-corners-exclude = [
+
+      ];
     };
 
     backend = "glx";

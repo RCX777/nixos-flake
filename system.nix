@@ -88,7 +88,6 @@
     xdotool
     feh
     ghc
-    cachix
 
     man-pages
     man-pages-posix

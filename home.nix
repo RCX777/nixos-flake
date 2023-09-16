@@ -5,11 +5,13 @@
     ./programs/git.nix
     ./programs/gpg.nix
     ./programs/ssh.nix
-    ./programs/nvim.nix
     ./programs/bash.nix
     ./programs/rofi/rofi.nix
-    ./programs/xmobar/xmobar.nix
+    ./programs/polybar/polybar.nix
     ./programs/vscodium.nix
+
+    # Check `services/xmonad/xmonad.nix` for details about this `hacky` approach
+    ./services/xmonad/xmonad-config-hack.nix
   ];
 
   home = {
@@ -27,11 +29,6 @@
     pavucontrol
     pamixer
 
-    haskellPackages.haskell-language-server
-    haskellPackages.haskell-debug-adapter
-    haskellPackages.hoogle
-
-    ihp-new # For generating new IHP projects
     direnv
     gnumake
 
@@ -40,7 +37,6 @@
     steam
     (discord.override { withOpenASAR = true; })
     flameshot # Screenshot utility
-    gamescope
 
     prismlauncher
   ];

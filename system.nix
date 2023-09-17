@@ -13,7 +13,7 @@
     # (e.g. gnupg.agent, required for using GPG keys while doing SSH)
     ./programs/gnupg-agent.nix
 
-    # Services (xserver, picom, etc..i.)
+    # Services (xserver, picom, etc...)
     ./services/xserver.nix
     ./services/openssh.nix
     ./services/picom.nix
@@ -56,31 +56,7 @@
 
   security.rtkit.enable = true;
 
-  # Environment packages/variables
   environment.binsh = "${pkgs.dash}/bin/dash";
-  environment.sessionVariables = rec {
-    # XDG Base Directory Specification
-    XDG_CACHE_HOME  = "$HOME/.cache";
-    XDG_CONFIG_HOME = "$HOME/.config";
-    XDG_DATA_HOME   = "$HOME/.local/share";
-    XDG_STATE_HOME  = "$HOME/.local/state";
-
-    # Use GPG-agent for SSH
-    SSH_AUTH_SOCK = "/run/user/1000/gnupg/S.gpg-agent.ssh";
-
-    HISTFILE = "${XDG_STATE_HOME}/bash/history";
-
-    CUDA_CACHE_PATH = "${XDG_CACHE_HOME}/nv";
-
-    _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=${XDG_CONFIG_HOME}/java";
-
-    XCOMPOSECACHE = "${XDG_CACHE_HOME}";
-    XCOMPOSEFILE  = "${XCOMPOSECACHE}/.XCompose";
-
-    __GL_SHADER_DISK_CACHE_PATH = "${XDG_CACHE_HOME}";
-
-    ERRFILE = "${XDG_CACHE_HOME}/X11/xsession-errors";
-  };
   environment.systemPackages = with pkgs; [
     dash
     killall

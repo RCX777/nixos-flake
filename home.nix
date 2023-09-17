@@ -8,6 +8,7 @@
     ./programs/ssh.nix
     ./programs/rofi/rofi.nix
     ./programs/polybar/polybar.nix
+    ./programs/alacritty/alacritty.nix
     ./programs/vscodium.nix
 
     # Check `services/xmonad/xmonad.nix` for details about this `hacky` approach

@@ -16,7 +16,7 @@
       SubstringSearch = {
         enable = true;
         caseSensitive = false;
-      }
+      };
     };
 
     shellAliases = {

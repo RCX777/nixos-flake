@@ -1,12 +1,19 @@
 { inputs, lib, config, pkgs, ... }: {
-  users.users = {
-    rcx = {
-      initialPassword = "youcantmilkthose";
-      isNormalUser    = true;
+  # Enable the default shell
+  programs.zsh.enable = true;
 
-      openssh.authorizedKeys.keys = [ ];
+  users = {
+    defaultUserShell = pkgs.zsh;
 
-      extraGroups = [ "wheel" "networkmanager" ];
+    users = {
+      rcx = {
+        initialPassword = "youcantmilkthose";
+        isNormalUser    = true;
+
+        openssh.authorizedKeys.keys = [ ];
+
+        extraGroups = [ "wheel" "networkmanager" ];
+      };
     };
   };
 }

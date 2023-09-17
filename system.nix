@@ -54,23 +54,58 @@
 
   time.timeZone = "Europe/Bucharest";
 
-  security.rtkit.enable = true;
+  security = {
+    rtkit.enable = true;
 
-  environment.binsh = "${pkgs.dash}/bin/dash";
-  environment.systemPackages = with pkgs; [
-    dash
-    killall
+    sudo = {
+      enable = true;
 
-    xdotool
-    feh
-    ghc
+      extraConfig = ''
+        # Show asterisks when typing password
+        Defaults pwfeedback
+      '';
+    };
+  };
 
-    man-pages
-    man-pages-posix
+  environment = {
+    binsh = "${pkgs.dash}/bin/dash";
 
-    htop
-    alacritty
-  ];
+    shells = with pkgs; [ zsh ];
+
+    systemPackages = with pkgs; [
+      dash
+      killall
+
+      feh
+      ghc
+
+      man-pages
+      man-pages-posix
+
+      htop
+      alacritty
+    ];
+
+    sessionVariables = rec {
+      XDG_CACHE_HOME  = "$HOME/.cache";
+      XDG_CONFIG_HOME = "$HOME/.config";
+      XDG_DATA_HOME   = "$HOME/.local/share";
+      XDG_STATE_HOME  = "$HOME/.local/state";
+
+      XCOMPOSECACHE   = "${XDG_CACHE_HOME}";
+      XCOMPOSEFILE    = "${XCOMPOSECACHE}/.XCompose";
+
+      # Use GPG-agent for SSH
+      SSH_AUTH_SOCK = "/run/user/1000/gnupg/S.gpg-agent.ssh";
+
+      CUDA_CACHE_PATH = "${XDG_CACHE_HOME}/nv";
+      __GL_SHADER_DISK_CACHE_PATH = "${XDG_CACHE_HOME}";
+
+      _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=${XDG_CONFIG_HOME}/java";
+
+      ERRFILE = "${XDG_CACHE_HOME}/X11/xsession-errors";
+    };
+  };
 
   # System-wide fonts
   fonts.fonts = with pkgs; [

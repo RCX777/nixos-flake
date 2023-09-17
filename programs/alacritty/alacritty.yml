@@ -4,7 +4,6 @@ window:
     x: 8
     y: 8
 
-
 cursor:
   style:
     shape:         Underline

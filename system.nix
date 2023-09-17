@@ -83,7 +83,6 @@
       man-pages-posix
 
       htop
-      alacritty
     ];
 
     sessionVariables = rec {

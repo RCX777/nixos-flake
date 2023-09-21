@@ -64,7 +64,7 @@ myStartupHook :: X ()
 myStartupHook = do
     spawnOnce "rm -f $HOME/.xsession-errors*"
     spawnOnce "feh --no-fehbg --bg-scale ~/Media/Images/Wallpapers/forest.png"
-    spawn     "polybar -c .config/polybar/config.ini"
+    spawn     "eww open bar-container"
     spawnOnce "xrandr --output HDMI-0 --mode 1920x1080 --rate 165 --primary --right-of eDP-1-1 --output eDP-1-1 --auto"
 
 myManageHook :: ManageHook

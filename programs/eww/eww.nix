@@ -1,6 +1,6 @@
 { inputs, lib, config, pkgs, ... }: {
   programs.eww = {
-    enable = true;
+    enable    = true;
     configDir = ./config;
   };
 }

@@ -1,0 +1,13 @@
+@import "color-schemes/catppuccin.scss";
+
+* {
+    all: unset;
+}
+
+.bar-container {
+    background-color: transparent;
+}
+
+.bar { 
+    background-color: transparentize($crust, 0.6);
+}

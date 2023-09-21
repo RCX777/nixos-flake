@@ -1,0 +1,41 @@
+;; **
+;; ** Wifi widget
+;; **
+
+(deflisten wifi_connected "./scripts/wifi.sh -m")
+(deflisten wifi_speed     "./scripts/wifi.sh -ns")
+
+(defvar ssid "")
+(defvar wifi_reveal false)
+(
+    defwidget wifi []
+    (
+        eventbox
+        :onhover     "eww update wifi_reveal=true"
+        :onhoverlost "eww update wifi_reveal=false"
+        :cursor      "pointer"
+        :tooltip     wifi_speed
+        (
+            box
+            :vexpand      false
+            :hexpand      false
+            :space-evenly false
+            (
+                button
+                :class "${ wifi_connected == "true" ? "wifi_icon" : "wifi_off_icon" }"
+                "${ wifi_connected == "true" ? "󰖩 " : "󰖪 " }"
+            )
+            (
+                revealer
+                :transition "slideright"
+                :reveal     wifi_reveal
+                :duration   "350ms"
+                (
+                    label
+                    :class "ssid_text"
+                    :text  "${wifi_connected == "true" ? "${ssid}" : ""}"
+                )
+            )
+        )
+    )
+)

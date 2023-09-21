@@ -1,0 +1,66 @@
+;; **
+;; ** Top bar
+;; **
+
+;; ** Widgets *****************************************************************
+
+(include "./widgets/clock.yuck")
+(include "./widgets/wifi.yuck")
+
+(
+    defwindow bar-container
+    :monitor 0
+    :geometry (geometry :x "0%" :y "9px" :width "1902px" :height "24px" :anchor "top center")
+    :stacking "bg"
+    :reserve (struts :distance "34px" :side "top")
+    :windowtype "dock"
+    :wm-ignore false
+    (bar)
+)
+
+(
+    defwidget bar []
+    (
+        box
+        :class "bar"
+        :orientation "h"
+        (right)
+        (center)
+        (left)
+    )
+)
+
+(
+    defwidget right []
+    (
+        box
+        :orientation "h" 
+        :space-evenly false  
+        :halign "start"
+        :class "modules-right"
+    )
+)
+
+(
+    defwidget center []
+    (
+        box
+        :orientation "h" 
+        :space-evenly false  
+        :halign "center"
+        :class "modules-center"
+        (clock)
+    )
+)
+
+(
+    defwidget left []
+    (
+        box
+        :orientation "h" 
+        :space-evenly false  
+        :halign "end"
+        :class "modules-left"
+        (wifi)
+    )
+)

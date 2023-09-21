@@ -1,8 +1,18 @@
-@import "color-schemes/catppuccin.scss";
+@import "colors.scss";
+
+/** General ******************************************************************/
 
 * {
     all: unset;
+    font-family: Helvetica Neue LT Std;
 }
+
+.tooltip {
+    background-color: $crust;
+}
+
+
+/** Top bar ******************************************************************/
 
 .bar-container {
     background-color: transparent;
@@ -10,4 +20,13 @@
 
 .bar { 
     background-color: transparentize($crust, 0.6);
+
+    padding-left:  8px;
+    padding-right: 8px;
 }
+
+
+/** Widgets ******************************************************************/
+
+@import "widgets/clock.scss";
+@import "widgets/wifi.scss";

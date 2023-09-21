@@ -1,0 +1,19 @@
+@import "../colors.scss";
+
+.wifi_icon, .wifi_off_icon {
+    font-size:     15px;
+    border-radius: 100%;
+}
+
+.wifi_icon {
+    color: $green;
+}
+
+.wifi_off_icon {
+    color: $red;
+}
+
+.ssid_text {
+    padding-top: 3px;
+    font-size:   12px;
+}

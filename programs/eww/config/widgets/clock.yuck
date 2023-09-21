@@ -1,0 +1,35 @@
+;; **
+;; ** Clock / Calendar widget
+;; **
+
+(defpoll clock_time   :interval "5s"  "date +%H:%M")
+(defpoll clock_date   :interval "5s"  "date \"+%A, %d %B\"")
+(defvar  clock_reveal false)
+(
+    defwidget clock []
+    (
+        box
+        :class "clock-container"
+        (
+            eventbox
+            :onhover     "eww update clock_reveal=true"
+            :onhoverlost "eww update clock_reveal=false"
+            :class       "clock"
+            :cursor      "pointer"
+            (
+                box
+                :space-evenly false
+                :spacing      "12"
+                :class        "clock-inner"
+                (label :text clock_time)
+                (
+                    revealer
+                    :transition "slideleft"
+                    :reveal     clock_reveal
+                    :duration   "350ms"
+                    clock_date
+                )
+            )
+        )
+    )
+)

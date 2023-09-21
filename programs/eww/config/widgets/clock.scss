@@ -1,0 +1,22 @@
+@import "../colors.scss";
+
+.clock-container {
+    margin-top:    3px;
+    margin-bottom: 3px;
+}
+
+.clock {
+    background-color: transparent;
+    border-radius: 12px;
+
+    transition: 350ms;
+    &:hover {
+        background-color: transparentize($lavender, 0.85);
+    }
+}
+
+.clock-inner {
+    margin-left:  10px;
+    margin-right: 10px;
+    margin-top:   3px;
+}

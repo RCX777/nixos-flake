@@ -8,6 +8,7 @@
     ./programs/ssh.nix
     ./programs/rofi/rofi.nix
     ./programs/polybar/polybar.nix
+    ./programs/eww/eww.nix
     ./programs/alacritty/alacritty.nix
     ./programs/vscodium.nix
 

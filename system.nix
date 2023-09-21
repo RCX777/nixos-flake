@@ -29,11 +29,6 @@
     };
   };
 
-# Uncomment for Gnome
-#  services.xserver.desktopManager.gnome.enable = true;
-#  services.xserver.displayManager.gdm.enable = true;
-#  hardware.pulseaudio.enable = false;
-
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
@@ -83,6 +78,10 @@
       man-pages-posix
 
       htop
+
+      # Network utilities
+      inetutils
+      nmap
     ];
 
     sessionVariables = rec {
@@ -110,6 +109,7 @@
   fonts.fonts = with pkgs; [
     font-awesome
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    helvetica-neue-lt-std
     noto-fonts-emoji
     overpass
   ];

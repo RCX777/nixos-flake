@@ -1,0 +1,18 @@
+;; **
+;; ** Workspace selector widget
+;; **
+
+(
+    defpoll
+    workspaces_listener
+    :interval "100ms"
+    "python3 ./scripts/workspaces.py" ;; TODO: Make this more efficient & responsive
+)
+(
+    defwidget workspaces []
+    (
+        literal
+        :content
+        workspaces_listener
+    )
+)

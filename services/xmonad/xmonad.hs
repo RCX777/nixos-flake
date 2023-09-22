@@ -12,6 +12,7 @@ import XMonad.Util.EZConfig
 import XMonad.Util.Loggers
 import XMonad.Util.Ungrab
 import XMonad.Util.Run
+import XMonad.Util.Cursor
 
 import XMonad.Layout.Magnifier
 import XMonad.Layout.ThreeColumns
@@ -62,6 +63,7 @@ toggleFloat w = windows (\s -> if M.member w (W.floating s)
 
 myStartupHook :: X ()
 myStartupHook = do
+    setDefaultCursor xC_left_ptr
     spawnOnce "rm -f $HOME/.xsession-errors*"
     spawnOnce "feh --no-fehbg --bg-scale ~/Media/Images/Wallpapers/forest.png"
     spawn     "eww open bar-container"

@@ -7,8 +7,8 @@
     font-family: Helvetica Neue LT Std;
 }
 
-.tooltip {
-    background-color: $crust;
+tooltip {
+    background-color: $mantle;
 }
 
 
@@ -30,3 +30,4 @@
 
 @import "widgets/clock.scss";
 @import "widgets/wifi.scss";
+@import "widgets/workspaces.scss";

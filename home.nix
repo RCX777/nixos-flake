@@ -1,18 +1,31 @@
 { inputs, lib, config, pkgs, ... }: {
   # You can import other home-manager modules here
   imports = [
-    # Programs
+    ## Programs ##
+    #
+    # User shell & config
     ./programs/zsh.nix
+
+    # Code versioning system
     ./programs/git.nix
+
+    # Note! Main gpg key is also used as ssh via gpg-agent
     ./programs/gpg.nix
     ./programs/ssh.nix
+
+    # Application launcher (dmenu equivalent)
     ./programs/rofi/rofi.nix
-    ./programs/polybar/polybar.nix
+
+    # Top-bar & widgets
     ./programs/eww/eww.nix
+
+    # Terminal emulator
     ./programs/alacritty/alacritty.nix
+
+    # Text Editor (dev)
     ./programs/vscodium.nix
 
-    # Check `services/xmonad/xmonad.nix` for details about this `hacky` approach
+    ## Check `services/xmonad/xmonad.nix` for details about this `hacky` approach
     ./services/xmonad/xmonad-config-hack.nix
   ];
 
@@ -21,20 +34,28 @@
     homeDirectory = "/home/rcx";
 
     packages = with pkgs; [
-      (polybar.override { pulseSupport = true; })
+      # Sound control
       pavucontrol
       pamixer
 
+      # Dev
       direnv
       gnumake
+      python3
 
+      # Web & comm
       firefox
+      (discord.override { withOpenASAR = true; })
+
+      # Gaming-related
+      prismlauncher
       lutris
       steam
-      (discord.override { withOpenASAR = true; })
-      flameshot # Screenshot utility
 
-      prismlauncher
+      # Misc utilities
+      flameshot
+      xdotool
+      wmctrl
     ];
 
     file = {

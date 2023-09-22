@@ -1,0 +1,26 @@
+@import "../colors.scss";
+
+.workspace_container {
+    margin-top:    3px;
+    margin-bottom: 3px;
+    padding:       6px;
+    border-radius: 12px;
+}
+
+.workspace_current, .workspace_active, .workspace_inactive {
+    min-width:     8px;
+    min-height:    8px;
+    border-radius: 100%;
+}
+
+.workspace_current {
+    background-color: $mauve
+}
+
+.workspace_active {
+    background-color: transparentize($lavender, 0.2);
+}
+
+.workspace_inactive {
+    background-color: transparentize($lavender, 0.9);
+}

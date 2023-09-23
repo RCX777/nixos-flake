@@ -1,0 +1,42 @@
+(
+    defwindow lockscreen
+    :monitor 0
+    :geometry (geometry :x "0%" :y "0%" :width "1920px" :height "1080px" :anchor "top left")
+    :stacking "bg"
+    :windowtype "dock"
+    :wm-ignore false
+    (
+        box
+        :class "lockscreen"
+        :halign "center"
+        :valign "center"
+        :orientation "h"
+        (
+            box
+            :class       "lockscreen_menu_container"
+            :orientation "h"
+            (
+                eventbox
+                :class   "lockscreen_button_container"
+                :cursor  "pointer"
+                (
+                    button
+                    :onclick "./scripts/lockscreen_toggle.sh"
+                    :class "lockscreen_button"
+                    ""
+                )
+            )
+            (
+                eventbox
+                :class   "lockscreen_button_container"
+                :cursor  "pointer"
+                (
+                    button
+                    :onclick "./scripts/lockscreen_toggle.sh"
+                    :class "lockscreen_button"
+                    ""
+                )
+            )
+        )
+    )
+)

@@ -39,7 +39,7 @@ config_connection (){
         SSID=$(nmcli c | grep $DEVICE | awk '{print ($1)}')
 
         echo "true"
-        eww update ssid=$SSID
+        eww update ssid=$(printf "\u205F\u205F\u205F$SSID")
     else
         echo "false"
     fi

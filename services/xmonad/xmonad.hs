@@ -46,15 +46,17 @@ main = do
         , workspaces         = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
         }
         `additionalKeysP`
-        [ ("M-w"  , spawn "firefox"                   )
-        , ("M-e"  , spawn "alacritty"                 )
-        , ("M-b"  , sendMessage ToggleStruts)
-        , ("M-r"  , spawn "killall polybar; xmonad --restart")
-        , ("M-`"  , spawn "rofi -show drun"           )
-        , ("M-f",   withFocused toggleFloat           )
-        , ("<Print>", spawn "flameshot gui"           )
-        , ("<XF86AudioLowerVolume>", spawn "pamixer -d 2")
-        , ("<XF86AudioRaiseVolume>", spawn "pamixer -i 2")
+        [ ("M-w"  , spawn "firefox"                       )
+        , ("M-e"  , spawn "alacritty"                     )
+        , ("M-b"  , sendMessage ToggleStruts              )
+        , ("M-r"  , spawn "killall eww; xmonad --restart" )
+        , ("M-`"  , spawn "rofi -show drun"               )
+        , ("M-f",   withFocused toggleFloat               )
+        , ("<Print>", spawn "flameshot gui"               )
+        , ("<XF86AudioLowerVolume>", spawn "pamixer -d 2" )
+        , ("<XF86AudioRaiseVolume>", spawn "pamixer -i 2" )
+        , ("<Esc>", spawn "eww close lockscreen"          )
+        , ("M-<Esc>", spawn "eww open --toggle lockscreen")
         ]
 
 toggleFloat w = windows (\s -> if M.member w (W.floating s)
@@ -66,7 +68,7 @@ myStartupHook = do
     setDefaultCursor xC_left_ptr
     spawnOnce "rm -f $HOME/.xsession-errors*"
     spawnOnce "feh --no-fehbg --bg-scale ~/Media/Images/Wallpapers/forest.png"
-    spawn     "eww open bar-container"
+    spawn     "eww open --toggle bar-container"
     spawnOnce "xrandr --output HDMI-0 --mode 1920x1080 --rate 165 --primary --right-of eDP-1-1 --output eDP-1-1 --auto"
 
 myManageHook :: ManageHook
@@ -79,7 +81,7 @@ myManageHook = composeAll
 myLayout = tiled ||| Mirror tiled ||| noBorders Full ||| threeCol
   where
     threeCol = magnifiercz' 1.3 $ ThreeColMid nmaster delta ratio
-    tiled    = spacing 9 $ Tall nmaster delta ratio
+    tiled    = spacingRaw False (Border 10 0 10 0) True (Border 0 10 0 10) True $ Tall nmaster delta ratio
     nmaster  = 1      -- Default number of windows in the master pane
     ratio    = 1/2    -- Default proportion of screen occupied by master pane
     delta    = 3/100  -- Percent of screen to increment by when resizing panes

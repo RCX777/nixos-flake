@@ -28,4 +28,4 @@ workspaces[current] = "workspace_current"
 for i in range(6):
     workspaces[i] = buttons[i] + workspaces[i] + "')"
 
-print("(box :class 'workspace_container' :halign 'center' :orientation 'h' :spacing 10 " + workspaces[0] + workspaces[1] + workspaces[2] + workspaces[3] + workspaces[4] + workspaces[5] + ')')
+print("(box :class 'workspaces' :halign 'center' :orientation 'h' :spacing 10 " + workspaces[0] + workspaces[1] + workspaces[2] + workspaces[3] + workspaces[4] + workspaces[5] + ')')

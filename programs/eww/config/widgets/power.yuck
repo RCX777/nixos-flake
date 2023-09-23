@@ -1,0 +1,19 @@
+;; **
+;; ** Power button widget
+;; **
+
+(
+    defwidget power []
+    (
+        box
+        :vexpand      false
+        :hexpand      false
+        :space-evenly false
+        (
+            button
+            :class   "power_icon"
+            :onclick "./scripts/lockscreen_toggle.sh"
+            ""
+        )
+    )
+)

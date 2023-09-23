@@ -21,13 +21,52 @@ tooltip {
 .bar { 
     background-color: transparentize($crust, 0.6);
 
-    padding-left:  8px;
-    padding-right: 8px;
+    padding: 3px;
 }
 
+/** Lockscreen ***************************************************************/
+
+.lockscreen {
+    background-image: url("./assets/images/forest.png");
+
+    min-width:  1920px;
+    min-height: 1080px;
+}
+
+.lockscreen_menu_container {
+    border-radius: 24px;
+    padding:       16px;
+    min-width:     400px;
+    min-height:    150px;
+
+    margin-left:   750px;
+    margin-right:  750px;
+    margin-top:    500px;
+    margin-bottom: 500px;
+
+    background-color: transparentize($lavender, 0.85);
+}
+
+.lockscreen_button_container {
+    background-color: transparent;
+}
+
+.lockscreen_button {
+    background-color: transparent;
+
+    font-size:  60px;
+    color:      $lavender;
+
+    transition: 350ms;
+    &:hover {
+        font-size: 80px;
+        color:     $mauve;
+    }
+}
 
 /** Widgets ******************************************************************/
 
 @import "widgets/clock.scss";
 @import "widgets/wifi.scss";
 @import "widgets/workspaces.scss";
+@import "widgets/power.scss";

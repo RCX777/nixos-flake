@@ -7,6 +7,7 @@
 (include "./widgets/clock.yuck")
 (include "./widgets/wifi.yuck")
 (include "./widgets/workspaces.yuck")
+(include "./widgets/power.yuck")
 
 (
     defwindow bar-container
@@ -25,6 +26,7 @@
         box
         :class "bar"
         :orientation "h"
+        :space-evenly true
         (right)
         (center)
         (left)
@@ -64,5 +66,6 @@
         :halign "end"
         :class "modules-left"
         (wifi)
+        (power)
     )
 )

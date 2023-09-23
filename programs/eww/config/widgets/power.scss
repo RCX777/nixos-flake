@@ -1,18 +1,18 @@
 @import "../colors.scss";
 
-.clock {
-    background-color: transparent;
+.power_icon {
     border-radius: 12px;
+
+    font-size:     14.3px;
+    color:         $red;
+
+    min-width:     24px;
 
     transition: 350ms;
     &:hover {
         background-color: transparentize($lavender, 0.85);
+        min-width: 60px;
     }
 }
 
-.clock-inner {
-    margin-left:  10px;
-    margin-right: 10px;
-    margin-top:   3px;
-    font-size:    13px;
-}
+

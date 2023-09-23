@@ -1,20 +1,17 @@
 @import "../colors.scss";
 
-.workspace_container {
-    margin-top:    3px;
-    margin-bottom: 3px;
+.workspaces{
     padding:       6px;
-    border-radius: 12px;
 }
 
 .workspace_current, .workspace_active, .workspace_inactive {
-    min-width:     8px;
-    min-height:    8px;
+    min-width:     10px;
+    min-height:    10px;
     border-radius: 100%;
 }
 
 .workspace_current {
-    background-color: $mauve
+    background-color: $mauve;
 }
 
 .workspace_active {

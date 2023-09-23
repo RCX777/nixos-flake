@@ -13,6 +13,7 @@
         eventbox
         :onhover     "eww update wifi_reveal=true"
         :onhoverlost "eww update wifi_reveal=false"
+        :class       "wifi"
         :cursor      "pointer"
         :tooltip     wifi_speed
         (
@@ -20,10 +21,11 @@
             :vexpand      false
             :hexpand      false
             :space-evenly false
+            :class        "wifi-inner"
             (
                 button
                 :class "${ wifi_connected == "true" ? "wifi_icon" : "wifi_off_icon" }"
-                "${ wifi_connected == "true" ? "󰖩 " : "󰖪 " }"
+                "${ wifi_connected == "true" ? "󰖩" : "󰖪" }"
             )
             (
                 revealer

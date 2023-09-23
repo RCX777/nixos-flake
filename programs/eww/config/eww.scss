@@ -34,17 +34,11 @@ tooltip {
 }
 
 .lockscreen_menu_container {
-    border-radius: 24px;
-    padding:       16px;
-    min-width:     400px;
-    min-height:    150px;
+    border-radius:    24px;
+    background-color: transparentize($lavender, 0.90);
+    box-shadow:       5px 10px 9px transparentize($crust, 0.75);
 
-    margin-left:   750px;
-    margin-right:  750px;
-    margin-top:    500px;
-    margin-bottom: 500px;
-
-    background-color: transparentize($lavender, 0.85);
+    min-height:       100px;
 }
 
 .lockscreen_button_container {
@@ -52,16 +46,30 @@ tooltip {
 }
 
 .lockscreen_button {
-    background-color: transparent;
+    // background-color: green;
+    // border-radius:    24px;
 
-    font-size:  60px;
-    color:      $lavender;
+    min-width:   100px;
+
+    font-size:   60px;
+    color:       $lavender;
 
     transition: 350ms;
     &:hover {
         font-size: 80px;
-        color:     $mauve;
     }
+}
+
+.lockscreen_button_return:hover {
+    color: $mauve;
+}
+
+.lockscreen_button_poweroff:hover {
+    color: $red;
+}
+
+.lockscreen_button_reboot:hover {
+    color: $peach;
 }
 
 /** Widgets ******************************************************************/

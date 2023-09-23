@@ -7,14 +7,19 @@
     :wm-ignore false
     (
         box
-        :class "lockscreen"
-        :halign "center"
-        :valign "center"
-        :orientation "h"
+        :class        "lockscreen"
+        :orientation  "v"
+        :space-evenly true
+        :halign       "center"
+        :valign       "center"
         (
             box
             :class       "lockscreen_menu_container"
             :orientation "h"
+            :space-evenly true
+            :halign       "center"
+            :valign       "center"
+            :spacing      "40"
             (
                 eventbox
                 :class   "lockscreen_button_container"
@@ -22,8 +27,12 @@
                 (
                     button
                     :onclick "./scripts/lockscreen_toggle.sh"
-                    :class "lockscreen_button"
-                    ""
+                    :class "lockscreen_button lockscreen_button_return"
+                    (
+                        label
+                        :xalign "0.38"
+                        :text ""
+                    )
                 )
             )
             (
@@ -32,9 +41,28 @@
                 :cursor  "pointer"
                 (
                     button
-                    :onclick "./scripts/lockscreen_toggle.sh"
-                    :class "lockscreen_button"
-                    ""
+                    :onclick "poweroff"
+                    :class "lockscreen_button lockscreen_button_poweroff"
+                    (
+                        label
+                        :xalign "0.4"
+                        :text   ""
+                    )
+                )
+            )
+            (
+                eventbox
+                :class   "lockscreen_button_container"
+                :cursor  "pointer"
+                (
+                    button
+                    :onclick "reboot"
+                    :class "lockscreen_button lockscreen_button_reboot"
+                    (
+                        label
+                        :xalign "0.39"
+                        :text ""
+                    )
                 )
             )
         )

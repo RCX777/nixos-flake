@@ -51,6 +51,13 @@
       prismlauncher
       lutris
 
+      # CLI utilities (similar to common utilities)
+      exa      # ls
+      ripgrep  # grep
+      procs    # ps
+      fd       # find
+      bat      # cat
+
       # Misc utilities
       flameshot
       xdotool

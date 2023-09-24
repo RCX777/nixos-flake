@@ -55,7 +55,6 @@ main = do
         , ("<Print>", spawn "flameshot gui"               )
         , ("<XF86AudioLowerVolume>", spawn "pamixer -d 2" )
         , ("<XF86AudioRaiseVolume>", spawn "pamixer -i 2" )
-        , ("<Esc>", spawn "eww close lockscreen"          )
         , ("M-<Esc>", spawn "eww open --toggle lockscreen")
         ]
 

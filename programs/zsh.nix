@@ -28,6 +28,9 @@
       # Sets up the prompt
       PROMPT="%F{121}%n%f@%F{121}%m%f:%F{147}%~/ %(?.%F{121}.%F{red})%#%f "
 
+      # Disables annoying x11-ssh-askpass (login is now done in the terminal)
+      SSH-ASKPASS=""
+
       # Binds Ctrl-Arrow(right/left)
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word

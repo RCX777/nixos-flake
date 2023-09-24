@@ -26,7 +26,8 @@ tooltip {
 
 .modules-right {
     border-radius:    12px;
-    background-color: transparentize($lavender, 0.95);
+    background-color: transparentize($lavender, 0.96);
+    box-shadow:      -5px 4px 6px transparentize($crust, 0.81)
 }
 
 /** Lockscreen ***************************************************************/

@@ -2,15 +2,16 @@
 ;; ** Battery level widget
 ;; **
 
-(defpoll level   :interval "1s" "./scripts/battery.sh --battery-level")
-(defpoll plugged :interval "1s" "./scripts/battery.sh --plugged-in")
-(defvar battery_reveal false)
-(defvar battery_level  100)
+(defpoll battery_icon :interval "1s" "./scripts/battery.sh")
+(defvar  battery_icon_style   "battery_75_100")
+(defvar  battery_level "100")
+(defvar  battery_reveal false)
 (
     defwidget battery []
     (
         eventbox
-        :onhover     "eww update battery_reveal=true"
+        :onhover     "eww update battery_reveal=true && \
+                      eww update battery_level=$(cat /sys/class/power_supply/BAT0/capacity)"
         :onhoverlost "eww update battery_reveal=false"
         :class       "battery_container"
         :cursor      "pointer"
@@ -22,18 +23,18 @@
             :class        "battery_inner"
             (
                 button
-                :class "${ plugged == 0 ? "battery" : "battery_charging" }"
-                level
+                :class battery_icon_style
+                battery_icon
             )
             (
                 revealer
                 :transition "slideright"
-                :reveal     "${ battery_reveal ? true : false }"
+                :reveal     battery_reveal
                 :duration   "350ms"
                 (
                     label
                     :class  "battery_level_text"
-                    :text   "${battery_level}"
+                    :text   battery_level
                 )
             )
         )

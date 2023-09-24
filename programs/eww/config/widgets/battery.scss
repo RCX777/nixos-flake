@@ -14,23 +14,31 @@
     margin-right: 10px;
 }
 
-.battery, .battery_charging {
+.battery_0_25, .battery_25_50, .battery_50_75, .battery_75_100 {
     font-size:     14.6px;
 	padding-left:  1px;
     border-radius: 100%;
 }
 
-.battery {
+.battery_0_25 {
+    color: $red;
+}
+
+.battery_25_50 {
     color: $peach;
 }
 
-.battery_charging {
-    color: $sapphire;
+.battery_50_75 {
+    color: $teal;
+}
+
+.battery_75_100 {
+    color: $blue;
 }
 
 .battery_level_text {
     padding-top: 3px;
-    margin-left: 5px;
+    margin-left: 7px;
     font-size:   13px;
 };
 

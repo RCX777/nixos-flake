@@ -8,6 +8,7 @@
 (include "./widgets/wifi.yuck")
 (include "./widgets/workspaces.yuck")
 (include "./widgets/power.yuck")
+(include "./widgets/battery.yuck")
 
 (
     defwindow bar-container
@@ -27,20 +28,20 @@
         :class "bar"
         :orientation "h"
         :space-evenly true
-        (right)
-        (center)
         (left)
+        (center)
+        (right)
     )
 )
 
 (
-    defwidget right []
+    defwidget left []
     (
         box
         :orientation "h" 
         :space-evenly false  
         :halign "start"
-        :class "modules-right"
+        :class "modules-left"
         (workspaces)
     )
 )
@@ -58,14 +59,15 @@
 )
 
 (
-    defwidget left []
+    defwidget right []
     (
         box
         :orientation "h" 
         :space-evenly false  
         :halign "end"
-        :class "modules-left"
+        :class "modules-right"
         (wifi)
+        (battery)
         (power)
     )
 )

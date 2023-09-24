@@ -3,7 +3,7 @@
 ;; **
 
 (defpoll clock_time   :interval "5s"  "date +%H:%M")
-(defpoll clock_date   :interval "5s"  "printf \"\\u205F\\u205F$(date '+%A, %d %B')\"")
+(defpoll clock_date   :interval "5s"  "date '+%A, %d %B'")
 (defvar  clock_reveal false)
 (
     defwidget clock []
@@ -23,7 +23,11 @@
                 :transition "slideleft"
                 :reveal     clock_reveal
                 :duration   "350ms"
-                clock_date
+                (
+                    label
+                    :style "margin-left: 6px;"
+                    :text  clock_date
+                )
             )
         )
     )

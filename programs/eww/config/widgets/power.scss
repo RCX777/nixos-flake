@@ -3,10 +3,11 @@
 .power_icon {
     border-radius: 12px;
 
-    font-size:     14.3px;
+    font-size:     14.2px;
     color:         $red;
 
     min-width:     24px;
+    padding-right: 3px;
 
     transition: 350ms;
     &:hover {

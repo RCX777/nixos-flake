@@ -2,10 +2,7 @@
 ;; ** Wifi widget
 ;; **
 
-(deflisten wifi_connected "./scripts/wifi.sh -m")
-(deflisten wifi_speed     "./scripts/wifi.sh -ns")
-
-(defvar ssid "")
+(defpoll ssid :interval "1s" "./scripts/wifi.sh")
 (defvar wifi_reveal false)
 (
     defwidget wifi []
@@ -13,9 +10,8 @@
         eventbox
         :onhover     "eww update wifi_reveal=true"
         :onhoverlost "eww update wifi_reveal=false"
-        :class       "wifi"
+        :class       "${ ssid != "" ? "wifi" : "wifi_off" }"
         :cursor      "pointer"
-        :tooltip     wifi_speed
         (
             box
             :vexpand      false
@@ -24,18 +20,18 @@
             :class        "wifi-inner"
             (
                 button
-                :class "${ wifi_connected == "true" ? "wifi_icon" : "wifi_off_icon" }"
-                "${ wifi_connected == "true" ? "󰖩" : "󰖪" }"
+                :class "${ ssid != "" ? "wifi_icon" : "wifi_off_icon" }"
+                "${ ssid != "" ? "󰖩" : "󰖪" }"
             )
             (
                 revealer
                 :transition "slideright"
-                :reveal     wifi_reveal
+                :reveal     "${ ssid != "" && wifi_reveal ? true : false }"
                 :duration   "350ms"
                 (
                     label
-                    :class "ssid_text"
-                    :text  "${wifi_connected == "true" ? "${ssid}" : ""}"
+                    :class  "ssid_text"
+                    :text   "${ssid}"
                 )
             )
         )

@@ -1,37 +1,36 @@
 @import "../colors.scss";
 
-.wifi, .wifi-off {
-    background-color: transparent;
+.battery_container {
     border-radius: 12px;
-}
 
-.wifi {
     transition: 350ms;
     &:hover {
         background-color: transparentize($lavender, 0.85);
     }
 }
 
-.wifi-inner {
+.battery_inner {
     margin-left:  10px;
     margin-right: 10px;
 }
 
-.wifi_icon, .wifi_off_icon {
-    font-size:     15px;
+.battery, .battery_charging {
+    font-size:     14.6px;
+	padding-left:  1px;
     border-radius: 100%;
 }
 
-.wifi_icon {
-    color: $green;
+.battery {
+    color: $peach;
 }
 
-.wifi_off_icon {
-    color: $red;
+.battery_charging {
+    color: $sapphire;
 }
 
-.ssid_text {
+.battery_level_text {
     padding-top: 3px;
-    margin-left: 10px;
-    font-size:   12px;
-}
+    margin-left: 5px;
+    font-size:   13px;
+};
+

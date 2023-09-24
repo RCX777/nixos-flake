@@ -1,0 +1,27 @@
+@import "../colors.scss";
+
+.sound {
+    border-radius: 12px;
+
+    transition: 350ms;
+    &:hover {
+        background-color: transparentize($lavender, 0.85);
+    }
+}
+
+.sound_icon_style_default, .sound_icon_style_muted, .sound_icon_style_overdrive {
+    font-size:     16px;
+    min-width:     27px;
+}
+
+.sound_icon_style_default {
+    color: $mauve;
+}
+
+.sound_icon_style_muted {
+    color: $red;
+}
+
+.sound_icon_style_overdrive {
+    color: $peach;
+}

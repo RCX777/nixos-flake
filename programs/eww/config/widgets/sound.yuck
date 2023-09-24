@@ -1,0 +1,22 @@
+;; **
+;; ** Sound (volume) widget
+;; **
+
+(defvar sound_icon       "󰕾")
+(defvar sound_icon_style "sound_icon_style_default")
+(
+    defwidget sound []
+    (
+        eventbox
+        :class     "sound"
+        :hexpand   true
+        :cursor    "pointer"
+        :onclick   "./scripts/sound.sh"
+        :onscroll  "./scripts/sound.sh {}"
+        (
+            label
+            :text sound_icon
+            :class sound_icon_style
+        )
+    )
+)

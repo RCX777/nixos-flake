@@ -18,12 +18,14 @@
 }
 
 .wifi_icon, .wifi_off_icon {
-    font-size:     15px;
+    font-size:     15.6px;
     border-radius: 100%;
+
+    padding-top: 0.7px;
 }
 
 .wifi_icon {
-    color: $green;
+    color: $blue;
 }
 
 .wifi_off_icon {

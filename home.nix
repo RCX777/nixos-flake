@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }: {
+{ inputs, custom, lib, config, pkgs, ... }: {
   # You can import other home-manager modules here
   imports = [
     ## Programs ##
@@ -50,7 +50,6 @@
       # Gaming-related
       prismlauncher
       lutris
-      steam
 
       # Misc utilities
       flameshot

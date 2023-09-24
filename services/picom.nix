@@ -3,12 +3,14 @@
     enable = true;
 
     settings = {
+      # General
+      vsync = true;
+
       # Blur
       blur = {
-        method     = "gaussian";
+        method     = "dual_kawase";
         background = true;
-        size       = 20;
-        deviation  = 15.0;
+        strength   = 8;
       };
 
       # Transparency & Opacity

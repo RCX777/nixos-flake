@@ -53,20 +53,21 @@ main = do
 
 myPP :: PP
 myPP = def
-  { ppCurrent         = \_ -> "(button :class 'workspace_current')"
-  , ppHidden          = \_ -> "(button :class 'workspace_active')"
-  , ppVisible         = \_ -> "(button :class 'workspace_active')"
-  , ppHiddenNoWindows = \_ -> "(button :class 'workspace_inactive')"
-  , ppLayout          = \_ -> "(box :class 'workspaces' :halign 'center' :orientation 'h' :spacing 10"
-  , ppTitle           = \_ -> ")"
-  , ppSep             = " "
-  , ppOrder           = \(ws : l : t : _) -> [l, ws, t]
+  { ppCurrent          = \w -> "(button :class 'workspace_current' :onclick 'wmctrl -s" ++ w ++ "')"
+  , ppHidden           = \w -> "(button :class 'workspace_active' :onclick 'wmctrl -s" ++ w ++ "')"
+  , ppVisible          = \w -> "(button :class 'workspace_active' :onclick 'wmctrl -s" ++ w ++ "')"
+  , ppHiddenNoWindows  = \w -> "(button :class 'workspace_inactive' :onclick 'wmctrl -s" ++ w ++ "')"
+  , ppVisibleNoWindows = Just $ \w -> "(button :class 'workspace_inactive' :onclick 'wmctrl -s" ++ w ++ "')"
+  , ppLayout           = \_ -> "(box :class 'workspaces' :halign 'center' :orientation 'h' :spacing 10"
+  , ppTitle            = \_ -> ")"
+  , ppSep              = " "
+  , ppOrder            = \(ws : l : t : _) -> [l, ws, t]
   }
 
 mySB :: StatusBarConfig
 mySB = statusBarProp "eww open --toggle bar-container" (pure myPP)
 
-myWorkspaces = ["1", "2", "3", "4", "5", "6"]
+myWorkspaces = ["0", "1", "2", "3", "4", "5"]
 
 toggleFloat w = windows (\s -> if M.member w (W.floating s)
                 then W.sink w s

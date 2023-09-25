@@ -59,9 +59,13 @@
       bat      # cat
 
       # Misc utilities
+      inetutils
+      pciutils
+      nmap
       flameshot
       xdotool
       wmctrl
+      htop
     ];
 
     file = {

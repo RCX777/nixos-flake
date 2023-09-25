@@ -76,12 +76,6 @@
 
       man-pages
       man-pages-posix
-
-      htop
-
-      # Network utilities
-      inetutils
-      nmap
     ];
 
     sessionVariables = rec {

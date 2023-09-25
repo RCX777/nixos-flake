@@ -1,37 +1,30 @@
 import XMonad
 
-import XMonad.Layout.NoBorders
-
-import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
-import XMonad.Hooks.StatusBar
 import XMonad.Hooks.WindowSwallowing
+import XMonad.Hooks.EwmhDesktops
+
+import XMonad.Hooks.StatusBar
+import XMonad.Hooks.StatusBar.PP
 
 import XMonad.Util.EZConfig
-import XMonad.Util.Loggers
-import XMonad.Util.Ungrab
-import XMonad.Util.Run
 import XMonad.Util.Cursor
+import XMonad.Util.SpawnOnce
 
 import XMonad.Layout.Magnifier
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.Spacing
+import XMonad.Layout.NoBorders
 
-import XMonad.Hooks.EwmhDesktops
+import XMonad.Actions.OnScreen
 
-import XMonad.Util.SpawnOnce
-
-import XMonad.Layout.IndependentScreens
 import qualified XMonad.StackSet as W
-import XMonad.Actions.CycleWS
 import Data.Map as M
-
-toggleStrutsKey XConfig { XMonad.modMask = modMask } = (modMask, xK_b)
 
 main :: IO ()
 main = do
-       xmonad $ docks $ ewmhFullscreen $ ewmh $ def
+       xmonad . withSB mySB . ewmhFullscreen . ewmh . docks $ def
         { modMask            = mod4Mask      -- Rebind Mod to the Super key
         , startupHook        = myStartupHook
         , focusFollowsMouse  = True
@@ -43,7 +36,7 @@ main = do
         , focusedBorderColor = "#cba6f7"
         , normalBorderColor  = "#b4befe"
         , handleEventHook    = swallowEventHook (className =? "Alacritty") (return True)
-        , workspaces         = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        , workspaces         = myWorkspaces
         }
         `additionalKeysP`
         [ ("M-w"  , spawn "firefox"                       )
@@ -58,16 +51,36 @@ main = do
         , ("M-<Esc>", spawn "eww open --toggle lockscreen")
         ]
 
+myPP :: PP
+myPP = def
+  { ppCurrent         = \_ -> "(button :class 'workspace_current')"
+  , ppHidden          = \_ -> "(button :class 'workspace_active')"
+  , ppVisible         = \_ -> "(button :class 'workspace_active')"
+  , ppHiddenNoWindows = \_ -> "(button :class 'workspace_inactive')"
+  , ppLayout          = \_ -> "(box :class 'workspaces' :halign 'center' :orientation 'h' :spacing 10"
+  , ppTitle           = \_ -> ")"
+  , ppSep             = " "
+  , ppOrder           = \(ws : l : t : _) -> [l, ws, t]
+  }
+
+mySB :: StatusBarConfig
+mySB = statusBarProp "eww open --toggle bar-container" (pure myPP)
+
+myWorkspaces = ["1", "2", "3", "4", "5", "6"]
+
 toggleFloat w = windows (\s -> if M.member w (W.floating s)
                 then W.sink w s
                 else (W.float w (W.RationalRect 0 0 1 1) s))
 
 myStartupHook :: X ()
 myStartupHook = do
+    -- Replaces the 'X' cursor
     setDefaultCursor xC_left_ptr
+    -- Cleans ~
     spawnOnce "rm -f $HOME/.xsession-errors*"
+    -- Sets the background
     spawnOnce "feh --no-fehbg --bg-scale ~/Media/Images/Wallpapers/forest.png"
-    spawn     "eww open --toggle bar-container"
+    -- Sets up my multiple screens (somehow doesn't break when the second screen is not connected)
     spawnOnce "xrandr --output HDMI-0 --mode 1920x1080 --rate 165 --primary --right-of eDP-1-1 --output eDP-1-1 --auto"
 
 myManageHook :: ManageHook
@@ -84,4 +97,3 @@ myLayout = tiled ||| Mirror tiled ||| noBorders Full ||| threeCol
     nmaster  = 1      -- Default number of windows in the master pane
     ratio    = 1/2    -- Default proportion of screen occupied by master pane
     delta    = 3/100  -- Percent of screen to increment by when resizing panes
-

@@ -9,10 +9,10 @@
           user = rcx
 
           # Whether to show the password input's label.
-          show-password-label = true
+          show-password-label = false
 
           # The text of the password input's label.
-          password-label-text = Password:
+          password-label-text = 
 
           # The text shown when an invalid password is entered. May be blank.
           invalid-password-text = Invalid Password
@@ -22,7 +22,7 @@
   
           # The text alignment for the password input. Possible values are:
           # "left" or "right"
-          password-alignment = right
+          password-alignment = left
 
 
           [greeter-theme]
@@ -30,7 +30,7 @@
           # RGB color(`rgb(r,g,b)`) are all acceptable formats.
 
           # The font to use for all text
-          font = "HelveticaNeueLTStd-BdEx"
+          font = "FiraCode Nerd Font Propo SemBd"
 
           # The font size to use for all text
           font-size = 12px
@@ -49,10 +49,10 @@
           background-color = "#11111b"
 
           # The password window's background color
-          window-color = "#1e1e2e"
+          window-color = "#11111b"
 
           # The color of the password window's border
-          border-color = "#1e1e2e"
+          border-color = "#11111b"
 
           # The width of the password window's border.
           # A trailing `px` is required.
@@ -66,7 +66,7 @@
           password-color = "#cdd6f4"
 
           # The background color of the password input.
-          password-background-color = "#313244"
+          password-background-color = "#1e1e2e"
 
           # The color of the password input's border.
           password-border-color = "#000000"

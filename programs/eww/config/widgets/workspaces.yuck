@@ -2,17 +2,13 @@
 ;; ** Workspace selector widget
 ;; **
 
-(
-    defpoll
-    workspaces_listener
-    :interval "100ms"
-    "python3 ./scripts/workspaces.py" ;; TODO: Make this more efficient & responsive
-)
+;; Handled by xmonad
+(deflisten workspaces_content "xprop -spy -root _XMONAD_LOG | stdbuf -o0 sed 's/_XMONAD_LOG(UTF8_STRING) = \"//; s/\"$//'")
 (
     defwidget workspaces []
     (
         literal
         :content
-        workspaces_listener
+        workspaces_content
     )
 )

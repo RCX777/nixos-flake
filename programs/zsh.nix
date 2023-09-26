@@ -15,11 +15,15 @@
     };
 
     shellAliases = {
+      # Alternatives to standard utilities
       ls    = "exa --icons --color=always";
       grep  = "rg";
       ps    = "procs";
       find  = "fd";
       cat   = "bat";
+
+      # Convenience aliases
+      cl    = "clear";
       flake = "sudo nixos-rebuild switch --upgrade --flake";
     };
 

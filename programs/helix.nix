@@ -1,4 +1,8 @@
 { inputs, lib, config, pkgs, ... }: {
+  home.sessionVariables = {
+    EDITOR = "${pkgs.helix}/bin/hx";
+  };
+
   programs.helix = {
     enable = true;
 

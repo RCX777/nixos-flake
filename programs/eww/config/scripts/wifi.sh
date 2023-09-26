@@ -1,3 +1,6 @@
 #!/bin/sh
 
-nmcli -t -f name,device connection show --active | grep wlo1 | cut -d\: -f1
+nmcli m | while read -r line; do
+  nmcli -t -f name,device c show --active | rg -F ":wlo1" -r ""\
+  || echo ""
+done

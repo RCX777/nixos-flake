@@ -6,6 +6,8 @@
     ];
 
   boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+
     initrd = {
       availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" ]; 
       kernelModules = [ ];
@@ -48,6 +50,10 @@
   swapDevices = [ ];
 
   hardware = {
+    cpu.intel = {
+      updateMicrocode = true;
+    };
+
     opengl = {
       enable = true;
       driSupport32Bit = true;
@@ -55,6 +61,8 @@
 
     nvidia = {
       open = true;
+
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
 
       modesetting.enable = true;
 
@@ -66,6 +74,11 @@
     };
   };
 
+  powerManagement = {
+    enable          = true;
+    cpuFreqGovernor = "ondemand";
+  };
+
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
@@ -75,6 +88,4 @@
   # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

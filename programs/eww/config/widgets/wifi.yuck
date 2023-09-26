@@ -2,7 +2,7 @@
 ;; ** Wifi widget
 ;; **
 
-(defpoll ssid :interval "1s" "./scripts/wifi.sh")
+(deflisten ssid "./scripts/wifi.sh")
 (defvar wifi_reveal false)
 (
     defwidget wifi []

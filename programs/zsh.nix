@@ -20,7 +20,6 @@
       ps    = "procs";
       find  = "fd";
       cat   = "bat";
-      code  = "codium --extensions-dir \"$XDG_DATA_HOME/vscode\" && sleep 1 && rm -r $HOME/.vscode-oss";
       flake = "sudo nixos-rebuild switch --upgrade --flake";
     };
 

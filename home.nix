@@ -22,8 +22,8 @@
     # Terminal emulator
     ./programs/alacritty/alacritty.nix
 
-    # Text Editor (dev)
-    ./programs/vscodium.nix
+    # Text Editor
+    ./programs/helix.nix
 
     ## Check `services/xmonad/xmonad.nix` for details about this `hacky` approach
     ./services/xmonad/xmonad-config-hack.nix

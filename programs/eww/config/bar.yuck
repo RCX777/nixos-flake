@@ -14,9 +14,9 @@
 (
     defwindow bar-container
     :monitor 0
-    :geometry (geometry :x "0%" :y "9px" :width "1902px" :height "24px" :anchor "top center")
+    :geometry (geometry :x "0%" :y "9px" :width "1892px" :height "24px" :anchor "top center")
     :stacking "bg"
-    :reserve (struts :distance "34px" :side "top")
+    :reserve (struts :distance "33px" :side "top")
     :windowtype "dock"
     :wm-ignore false
     (bar)

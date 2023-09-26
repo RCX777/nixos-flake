@@ -94,7 +94,7 @@ myManageHook = composeAll
 myLayout = tiled ||| Mirror tiled ||| noBorders Full ||| threeCol
   where
     threeCol = magnifiercz' 1.3 $ ThreeColMid nmaster delta ratio
-    tiled    = spacingRaw False (Border 10 0 10 0) True (Border 0 10 0 10) True $ Tall nmaster delta ratio
+    tiled    = spacingRaw False (Border 14 0 14 0) True (Border 0 14 0 14) True $ Tall nmaster delta ratio
     nmaster  = 1      -- Default number of windows in the master pane
     ratio    = 1/2    -- Default proportion of screen occupied by master pane
     delta    = 3/100  -- Percent of screen to increment by when resizing panes

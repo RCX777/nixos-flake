@@ -49,7 +49,6 @@
 
       # Gaming-related
       prismlauncher
-      lutris
 
       # CLI utilities (similar to common utilities)
       exa      # ls

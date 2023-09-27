@@ -5,6 +5,7 @@
     #
     # User shell & config
     ./programs/zsh.nix
+    ./programs/direnv.nix
 
     # Code versioning system
     ./programs/git.nix
@@ -37,11 +38,6 @@
       # Sound control
       pavucontrol
       pamixer
-
-      # Dev
-      direnv
-      gnumake
-      python3
 
       # Web & comm
       firefox

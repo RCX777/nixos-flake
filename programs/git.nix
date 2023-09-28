@@ -2,11 +2,14 @@
   programs.git = {
     enable = true;
 
+    # Pretty syntax highlighter for git diff & others
+    delta = {
+      enable = true;
+    };
+
     signing = {
       signByDefault = true;
-
-      # Fingerprint of key exposed by gpg-agent (see gpg.nix)
-      key = "30E2A48ACC58C42F";
+      key           = "D99664161A06F749";
     };
 
     userName  = "RCX777";

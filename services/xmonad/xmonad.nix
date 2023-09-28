@@ -1,4 +1,14 @@
 { inputs, lib, config, pkgs, ... }: {
+  environment = {
+    systemPackages = with pkgs; [
+      # Used to kill spawned processes on restart
+      killall
+
+      # Used to set the desktop background
+      feh
+    ];
+  };
+
   services.xserver.windowManager.xmonad = {
     enable = true;
     enableContribAndExtras = true;

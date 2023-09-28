@@ -69,11 +69,6 @@
 
     systemPackages = with pkgs; [
       dash
-      killall
-
-      feh
-      ghc
-
       man-pages
       man-pages-posix
     ];

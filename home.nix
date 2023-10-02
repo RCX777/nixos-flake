@@ -25,6 +25,10 @@
 
     # Text Editor
     ./programs/helix.nix
+    ./programs/neovim/neovim.nix
+
+    # Web browser
+    ./programs/firefox.nix
 
     ## Check `services/xmonad/xmonad.nix` for details about this `hacky` approach
     ./services/xmonad/xmonad-config-hack.nix
@@ -40,11 +44,11 @@
       pamixer
 
       # Web & comm
-      firefox
       (discord.override { withOpenASAR = true; })
 
       # Gaming-related
       prismlauncher
+      steam
 
       # CLI utilities (similar to common utilities)
       exa      # ls

@@ -63,6 +63,7 @@
       nmap
       flameshot
       xdotool
+      xclip
       wmctrl
       htop
     ];

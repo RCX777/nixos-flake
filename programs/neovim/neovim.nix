@@ -10,4 +10,11 @@
     recursive = true;
     source    = ./config;
   };
+
+  home.packages = with pkgs; [
+    # Common language servers
+    # C
+    clang-tools
+    clang 
+  ];
 }

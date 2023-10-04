@@ -5,7 +5,7 @@
   imports = [
     # Hardware-specific configuration
     ./hardware.nix
-
+    
     # System users (user-specific configuration is stored in `home.nix`)
     ./users.nix
 

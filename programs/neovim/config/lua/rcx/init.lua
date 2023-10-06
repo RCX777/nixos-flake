@@ -1,2 +1,2 @@
-require("rcx.remap")
 require("rcx.set")
+require("rcx.remap")

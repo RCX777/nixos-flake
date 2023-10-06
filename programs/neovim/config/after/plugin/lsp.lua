@@ -9,6 +9,8 @@ lsp_zero.set_preferences({
 
 require'lspconfig'.rust_analyzer.setup{}
 require'lspconfig'.clangd.setup{}
+require'lspconfig'.hls.setup{}
+
 
 lsp_zero.on_attach(function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
@@ -38,7 +40,7 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
     ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+    ['<Tab>'] = cmp.mapping.confirm({ select = true }),
     ['<C-Space>'] = cmp.mapping.complete(),
   }),
 })

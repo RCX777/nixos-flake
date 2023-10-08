@@ -3,13 +3,18 @@
     enable = true;
 
     settings = {
-      # General
       vsync = false;
 
-      use-ewmh-active-win = true; # ewmh is active in xmonad.hs
-      no-ewmh-fullscreen  = true;
+      # Use ewmh (also active in xmonad.hs)
+      use-ewmh-active-win = true;
+      no-ewmh-fullscreen  = false;
 
+      # Disable compositing when 'true' fullscreen windows are present
+      # (works on games like a charm)
       unredir-if-possible = true;
+
+      # Should improve performance (so far no visual artifacts encountered)
+      glx-no-stencil      = true;
 
       # Blur
       blur = {
@@ -17,17 +22,7 @@
         background = true;
         strength   = 8;
       };
-
-      # Transparency & Opacity
-
-      # Shadows
-      # shadow = true;
-      shadow-radius   = 7.5;
-      shadow-opacity  = 0.68;
-      shadow-offset-x = -9;
-      shadow-offset-y = -9;
-      shadow-color    = "#010109";
-
+       
       # Fading
       fading = true;
       fade-delta = 5;
@@ -36,21 +31,12 @@
       corner-radius = 12.0;
       round-borders = 1;
 
-      # Window rules
+      # Specific window rules
       wintypes = {
-        desktop = { shadow = true; };
         tooltip = { opacity = 0.8; };
       };
-
-      # Excluding games from compositing
-      rounded-corners-exclude = [
-        "class_g = 'cs2'"
-      ];
-      blur-background-exclude = [
-        "class_g = 'cs2'"
-      ];
     };
-
+ 
     backend = "glx";
   };
 }

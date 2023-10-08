@@ -14,4 +14,10 @@ vim.keymap.set("n", "Q", "<nop>")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+vim.keymap.set("i", '"', '""<left>', { noremap = true })
+vim.keymap.set("i", '(', '()<left>', { noremap = true })
+vim.keymap.set("i", '[', '[]<left>', { noremap = true })
+vim.keymap.set("i", '{<CR>', '{<CR>}<Esc>ko', { noremap = true })
+
+
 

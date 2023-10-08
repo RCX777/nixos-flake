@@ -39,8 +39,15 @@ require("catppuccin").setup({
         telescope = {
             enabled = true,
         },
+        native_lsp = {
+            enabled = true,
+        },
         notify = false,
         mini = false,
+        indent_blankline = {
+            enabled = true,
+            scope_color = "#b4befe",
+        },
         -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
     },
 })

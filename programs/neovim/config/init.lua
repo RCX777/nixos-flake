@@ -34,6 +34,8 @@ require("lazy").setup({
             "L3MON4D3/LuaSnip",
         },
     },
+    {"lukas-reineke/indent-blankline.nvim"},
+    {"lukas-reineke/virt-column.nvim"},
 })
 
 

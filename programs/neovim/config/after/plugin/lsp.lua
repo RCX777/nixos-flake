@@ -10,6 +10,14 @@ lsp_zero.set_preferences({
 require'lspconfig'.rust_analyzer.setup{}
 require'lspconfig'.clangd.setup{}
 require'lspconfig'.hls.setup{}
+require'lspconfig'.jdtls.setup{
+    cmd = {
+        "jdt-language-server",
+        "-data",
+        os.getenv("XDG_CACHE_HOME") .. "/jdtls/" .. os.getenv("PWD") },
+    single_file_support = true,
+}
+require'lspconfig'.jedi_language_server.setup{}
 
 
 lsp_zero.on_attach(function(client, bufnr)

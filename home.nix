@@ -45,10 +45,12 @@
 
       # Web & comm
       (discord.override { withOpenASAR = true; })
+      teams
 
       # Gaming-related
       prismlauncher
       steam
+      lutris
 
       # CLI utilities (similar to common utilities)
       exa      # ls
@@ -57,15 +59,31 @@
       fd       # find
       bat      # cat
 
-      # Misc utilities
+      # Compression
+      zip
+      unzip
+      p7zip
+
+      # Networking
       inetutils
-      pciutils
+      wget
       nmap
+      fragments
+
+      # Screenshot
       flameshot
+
+      # WM/X11 related
+      wmctrl
       xdotool
       xclip
-      wmctrl
+
+      # System info
+      pciutils
       htop
+
+      # Pdf viewer
+      zathura
     ];
 
     file = {

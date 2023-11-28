@@ -3,9 +3,6 @@
 
 { inputs, lib, config, pkgs, ... }: {
   imports = [
-    # Hardware-specific configuration
-    ./hardware.nix
-    
     # System users (user-specific configuration is stored in `home.nix`)
     ./users.nix
 
@@ -102,6 +99,9 @@
     noto-fonts-emoji
     overpass
   ];
+
+  virtualisation.docker.enable = true;
+  virtualisation.virtualbox.host.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

@@ -24,6 +24,7 @@
         # > Our main nixos configuration file <
         modules = [
           ./system.nix
+          ./hardware.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs   = true;

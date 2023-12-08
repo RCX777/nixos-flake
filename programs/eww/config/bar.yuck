@@ -69,7 +69,7 @@
         :class "modules-right"
         (sound)
         (wifi)
-        (battery)
+        ; (battery)
         (power)
     )
 )

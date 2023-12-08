@@ -45,7 +45,7 @@
 
       # Web & comm
       (discord.override { withOpenASAR = true; })
-      teams
+      # teams
 
       # Gaming-related
       prismlauncher
@@ -53,7 +53,7 @@
       lutris
 
       # CLI utilities (similar to common utilities)
-      exa      # ls
+      lsd      # ls
       ripgrep  # grep
       procs    # ps
       fd       # find
@@ -84,6 +84,9 @@
 
       # Pdf viewer
       zathura
+
+      # Emulation
+      wineWowPackages.stagingFull
     ];
 
     file = {

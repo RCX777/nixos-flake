@@ -82,7 +82,7 @@ myStartupHook = do
     -- Sets the background
     spawnOnce "feh --no-fehbg --bg-scale ~/Media/Images/Wallpapers/forest.png"
     -- Sets up my multiple screens (somehow doesn't break when the second screen is not connected)
-    spawnOnce "xrandr --output HDMI-0 --mode 1920x1080 --rate 165 --primary --right-of eDP-1-1 --output eDP-1-1 --auto"
+    spawnOnce "xrandr --output HDMI-0 --mode 1920x1080 --rate 165 --primary"
 
 myManageHook :: ManageHook
 myManageHook = composeAll

@@ -1,7 +1,8 @@
 { inputs, lib, config, pkgs, ... }: {
+  services.xserver.displayManager.sddm.enable = true;
   services.xserver.displayManager.lightdm = {
       greeters.mini = {
-        enable = true;
+        enable = false;
         user   = "rcx";
         extraConfig = ''
           [greeter]

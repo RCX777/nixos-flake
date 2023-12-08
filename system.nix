@@ -92,7 +92,7 @@
   };
 
   # System-wide fonts
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     font-awesome
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
     helvetica-neue-lt-std

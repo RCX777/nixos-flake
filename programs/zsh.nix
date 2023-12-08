@@ -4,8 +4,10 @@
 
     enableCompletion         = true;
     enableAutosuggestions    = true;
-    enableSyntaxHighlighting = true;
     enableVteIntegration     = true;
+    syntaxHighlighting = {
+        enable = true;
+    };
 
     dotDir = ".config/zsh"; # Assumes that $HOME is the parent dir of `.config`
 
@@ -16,7 +18,7 @@
 
     shellAliases = {
       # Alternatives to standard utilities
-      ls    = "exa --icons --color=always";
+      ls    = "lsd";
       grep  = "rg";
       ps    = "procs";
       find  = "fd";

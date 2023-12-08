@@ -9,7 +9,7 @@
     kernelPackages = pkgs.linuxPackages_latest;
 
     initrd = {
-      availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" ]; 
+      availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
       kernelModules = [ ];
     };
 
@@ -89,3 +89,4 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
+

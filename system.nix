@@ -23,6 +23,7 @@
 
     config = {
       allowUnfree = true;
+      cudaSupport = true;
     };
   };
 
@@ -100,9 +101,20 @@
     overpass
   ];
 
-  virtualisation.docker.enable = true;
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
+  virtualisation = {
+      docker = {
+          enable = true;
+          enableNvidia = true;
+          extraOptions = ''
+            --add-runtime nvidia=/run/current-system/sw/bin/nvidia-container-runtime
+          '';
+      };
+
+      virtualbox.host = {
+          enable = true;
+          enableExtensionPack = true;
+      };
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

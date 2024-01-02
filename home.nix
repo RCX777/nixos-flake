@@ -45,7 +45,7 @@
 
       # Web & comm
       (discord.override { withOpenASAR = true; })
-      # teams
+      teams-for-linux
 
       # Gaming-related
       prismlauncher

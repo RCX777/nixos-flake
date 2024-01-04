@@ -32,6 +32,9 @@
 
     ## Check `services/xmonad/xmonad.nix` for details about this `hacky` approach
     ./services/xmonad/xmonad-config-hack.nix
+
+    # Custom ".desktop" files
+    ./desktop-entries/custom.nix
   ];
 
   home = {
@@ -92,10 +95,6 @@
     file = {
       "Media/Images/Wallpapers" = {
         source    = ./wallpapers;
-        recursive = true;
-      };
-      ".local/share/applications" = {
-        source    = ./desktop-entries;
         recursive = true;
       };
     };

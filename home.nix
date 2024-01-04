@@ -94,6 +94,10 @@
         source    = ./wallpapers;
         recursive = true;
       };
+      ".local/share/applications" = {
+        source    = ./desktop-entries;
+        recursive = true;
+      };
     };
   };
 

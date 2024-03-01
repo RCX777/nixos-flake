@@ -6,7 +6,7 @@
     ];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_6_5;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     initrd = {
       availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" ]; 
@@ -16,10 +16,15 @@
     kernelModules = [ "kvm-intel" "nvidia" "nvidia_uvm" "nvidia_drm" "nvidia_modeset" ];
     extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
 
-    kernelParams = [ "nosgx" ];
+    kernelParams = [
+      "nosgx"
+      "nvidia.NVreg_InitializeSystemMemoryAllocations=0"
+      "nvidia.NVreg_EnableStreamMemOPs=1"
+    ];
 
     extraModprobeConfig = ''
       options nvidia-drm modeset=1
+      options nvidia-drm fbdev=1
     '';
 
     loader.systemd-boot.enable = true;
@@ -53,11 +58,13 @@
     };
 
     nvidia = {
-      open = true;
+      open = false;
 
       package = config.boot.kernelPackages.nvidiaPackages.beta;
 
       modesetting.enable = true;
+
+      # forceFullCompositionPipeline = true;
     };
   };
 

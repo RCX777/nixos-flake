@@ -46,14 +46,17 @@
       pavucontrol
       pamixer
 
+      # Media
+      mpv
+
       # Web & comm
       (discord.override { withOpenASAR = true; })
       teams-for-linux
 
       # Gaming-related
       prismlauncher
-      steam
-      lutris
+      (steam.override { extraPkgs = (pkgs: [ gamemode mangohud ]); })
+      (lutris.override { extraPkgs = (pkgs: [ gamemode mangohud ]); })
 
       # CLI utilities (similar to common utilities)
       lsd      # ls

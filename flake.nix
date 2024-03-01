@@ -2,11 +2,9 @@
   description = "System config";
 
   inputs = {
-    # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-23.11";
+    home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -15,13 +13,13 @@
     nixpkgs,
     home-manager,
     ...
-  } @inputs: {
-    # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#your-hostname'
+  } @inputs: let
+    inherit (self) outputs;
+  in {
     nixosConfigurations = {
       laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        # > Our main nixos configuration file <
+        specialArgs = { inherit inputs outputs; };
+
         modules = [
           ./system.nix
           ./hardware/laptop.nix
@@ -36,7 +34,7 @@
       };
 
       pc = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs outputs; };
 
         modules = [
           ./system.nix

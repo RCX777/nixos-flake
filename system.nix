@@ -89,6 +89,8 @@
       _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=${XDG_CONFIG_HOME}/java";
 
       ERRFILE = "${XDG_CACHE_HOME}/X11/xsession-errors";
+
+      HISTFILE = "${XDG_STATE_HOME}/bash/history";
     };
   };
 
@@ -114,6 +116,10 @@
           enable = true;
           enableExtensionPack = true;
       };
+  };
+
+  programs.gamemode = {
+    enable = true;
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

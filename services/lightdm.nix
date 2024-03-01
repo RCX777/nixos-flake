@@ -1,5 +1,13 @@
 { inputs, lib, config, pkgs, ... }: {
-  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm = {
+    enable = true;
+    settings = {
+      X11 = {
+        UserAuthFile = ".local/state/Xauthority";
+      };
+    };
+  };
+
   services.xserver.displayManager.lightdm = {
       greeters.mini = {
         enable = false;

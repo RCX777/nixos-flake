@@ -3,5 +3,5 @@
     enable = true;
   };
 
-  home.file."${config.xdg.configHome}/alacritty/alacritty.yml".source = ./alacritty.yml;
+  home.file."${config.xdg.configHome}/alacritty/alacritty.toml".source = ./alacritty.toml;
 }

@@ -6,12 +6,19 @@
 
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.3.0";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    lanzaboote,
     ...
   } @inputs: let
     inherit (self) outputs;
@@ -24,6 +31,7 @@
           ./system.nix
           ./hardware/laptop.nix
           ./host-specific/laptop.nix
+          lanzaboote.nixosModules.lanzaboote
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs   = true;
@@ -39,6 +47,7 @@
         modules = [
           ./system.nix
           ./hardware/pc.nix
+          lanzaboote.nixosModules.lanzaboote
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs   = true;

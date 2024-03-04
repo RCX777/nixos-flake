@@ -45,7 +45,10 @@
   networking.networkmanager.enable = true;
   networking.hostName = "nixos";
 
-  time.timeZone = "Europe/Bucharest";
+  time = {
+    timeZone = "Europe/Bucharest";
+    hardwareClockInLocalTime = true;
+  };
 
   security = {
     rtkit.enable = true;
@@ -69,6 +72,7 @@
       dash
       man-pages
       man-pages-posix
+      sbctl
     ];
 
     sessionVariables = rec {

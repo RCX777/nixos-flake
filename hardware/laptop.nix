@@ -24,7 +24,12 @@
       blacklist i2c_nvidia_gpu
     '';
 
-    loader.systemd-boot.enable = true;
+    loader.systemd-boot.enable = lib.mkForce false;
+
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot/";
+    };
   };
 
   zramSwap = {
@@ -60,7 +65,7 @@
     };
 
     nvidia = {
-      open = true;
+      open = false;
 
       package = config.boot.kernelPackages.nvidiaPackages.beta;
 

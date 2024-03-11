@@ -23,12 +23,15 @@
     # Terminal emulator
     ./programs/alacritty/alacritty.nix
 
-    # Text Editor
+    # Text Editors
     ./programs/helix.nix
     ./programs/neovim/neovim.nix
 
     # Web browser
     ./programs/firefox.nix
+
+    # Shell prompt
+    ./programs/starship.nix
 
     ## Check `services/xmonad/xmonad.nix` for details about this `hacky` approach
     ./services/xmonad/xmonad-config-hack.nix
@@ -58,12 +61,19 @@
       (steam.override { extraPkgs = (pkgs: [ gamemode mangohud ]); })
       (lutris.override { extraPkgs = (pkgs: [ gamemode mangohud ]); })
 
-      # CLI utilities (similar to common utilities)
-      lsd      # ls
-      ripgrep  # grep
-      procs    # ps
-      fd       # find
-      bat      # cat
+      # Utilities
+      lsd
+      ripgrep
+      procs
+      fd
+      bat
+      tmux
+      zoxide
+      fzf
+      jq
+
+      # Nix LSP
+      nixd
 
       # Compression
       zip

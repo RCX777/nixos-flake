@@ -17,7 +17,8 @@ require'lspconfig'.jdtls.setup{
         os.getenv("XDG_CACHE_HOME") .. "/jdtls/" .. os.getenv("PWD") },
     single_file_support = true,
 }
-require'lspconfig'.jedi_language_server.setup{}
+require'lspconfig'.pylsp.setup{}
+require'lspconfig'.nixd.setup{}
 
 
 lsp_zero.on_attach(function(client, bufnr)

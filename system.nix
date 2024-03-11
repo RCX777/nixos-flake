@@ -10,6 +10,9 @@
     # (e.g. gnupg.agent, required for using GPG keys while doing SSH)
     ./programs/gnupg-agent.nix
 
+    # Tmux configuration
+    ./programs/tmux.nix
+
     # Services (xserver, picom, etc...)
     ./services/xserver.nix
     ./services/openssh.nix

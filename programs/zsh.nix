@@ -39,7 +39,6 @@
       # Binds Ctrl-Arrow(right/left)
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
-      eval "$(zoxide init zsh)"
     '';
   };
 }

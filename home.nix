@@ -33,6 +33,9 @@
     # Shell prompt
     ./programs/starship.nix
 
+    # Terminal productivity tools
+    ./programs/zoxide.nix
+
     ## Check `services/xmonad/xmonad.nix` for details about this `hacky` approach
     ./services/xmonad/xmonad-config-hack.nix
 
@@ -68,7 +71,6 @@
       fd
       bat
       tmux
-      zoxide
       fzf
       jq
 

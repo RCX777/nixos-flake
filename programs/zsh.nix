@@ -23,6 +23,7 @@
       ps    = "procs";
       find  = "fd";
       cat   = "bat";
+      cd    = "z";
 
       # Convenience aliases
       cl    = "clear";

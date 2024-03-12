@@ -18,6 +18,8 @@ require("lazy").setup({
     {"nvim-treesitter/nvim-treesitter"},
     {"nvim-telescope/telescope.nvim"},
 
+    {"nvim-tree/nvim-tree.lua"},
+
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
     {"theprimeagen/harpoon"},
@@ -38,4 +40,5 @@ require("lazy").setup({
     {"lukas-reineke/virt-column.nvim"},
 })
 
+require("nvim-tree").setup()
 

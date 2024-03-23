@@ -15,6 +15,9 @@
     # Common language servers
     # C
     clang-tools
-    clang 
+    clang
+    
+    # Lua
+    lua-language-server
   ];
 }

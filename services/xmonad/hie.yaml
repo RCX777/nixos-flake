@@ -1,0 +1,5 @@
+cradle:
+  bios:
+    program: "./hie-bios.sh"
+    with-ghc: "/nix/store/7gvijar279ibz59nhadrn3gxmdc4h34q-ghc-9.4.8-with-packages/bin/ghc"
+

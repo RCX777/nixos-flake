@@ -8,9 +8,15 @@ map("i", "jk", "<ESC>")
 
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
 
--- move selected lines up/down
-vim.keymap.set("v", "<M-Down>", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "<M-Up>",   ":m '<-2<CR>gv=gv")
+map('n', '<leader>u', "<cmd>UndotreeToggle<CR>")
 
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+map("v", "<M-Down>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
+map("v", "<M-Up>",   ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 
+map("n", "<leader>y", "\"+y", { desc = "Yank into `+` register" })
+map("v", "<leader>y", "\"+y", { desc = "Yank selection into `+` register" })
+map("n", "<leader>y", "\"+Y", { desc = "Yank into `+` register" })
+
+map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], {
+  desc = "Replace all occurences of word under cursor"
+})

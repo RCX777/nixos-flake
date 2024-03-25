@@ -6,18 +6,30 @@
     vimAlias = true; 
   };
 
-  home.file."${config.xdg.configHome}/nvim" = {
-    recursive = true;
-    source    = ./config;
-  };
+  home = {
+    file."${config.xdg.configHome}/nvim" = {
+      recursive = true;
+      source    = ./config;
+    };
 
-  home.packages = with pkgs; [
-    # Common language servers
-    # C
-    clang-tools
-    clang
-    
-    # Lua
-    lua-language-server
-  ];
+    packages = with pkgs; [
+      # Common language servers
+      # C
+      clang-tools
+      clang
+
+      # Lua
+      lua-language-server
+
+      # Nix
+      nixd
+
+      # Haskell
+      haskell-language-server
+
+      # Rust
+      rust-analyzer
+    ];
+  };
 }
+

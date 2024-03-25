@@ -74,9 +74,6 @@
       fzf
       jq
 
-      # Nix LSP
-      nixd
-
       # Compression
       zip
       unzip

@@ -58,8 +58,8 @@ myPP = def
   , ppVisible          = \w -> "(button :class 'workspace_active' :onclick 'wmctrl -s" ++ w ++ "')"
   , ppHiddenNoWindows  = \w -> "(button :class 'workspace_inactive' :onclick 'wmctrl -s" ++ w ++ "')"
   , ppVisibleNoWindows = Just $ \w -> "(button :class 'workspace_inactive' :onclick 'wmctrl -s" ++ w ++ "')"
-  , ppLayout           = \_ -> "(box :class 'workspaces' :halign 'center' :orientation 'h' :spacing 10"
-  , ppTitle            = \_ -> ")"
+  , ppLayout           = const "(box :class 'workspaces' :halign 'center' :orientation 'h' :spacing 10"
+  , ppTitle            = const ")"
   , ppSep              = " "
   , ppOrder            = \(ws : l : t : _) -> [l, ws, t]
   }
@@ -71,7 +71,7 @@ myWorkspaces = ["0", "1", "2", "3", "4", "5"]
 
 toggleFloat w = windows (\s -> if M.member w (W.floating s)
                 then W.sink w s
-                else (W.float w (W.RationalRect 0 0 1 1) s))
+                else W.float w (W.RationalRect 0 0 1 1) s)
 
 myStartupHook :: X ()
 myStartupHook = do
@@ -94,7 +94,8 @@ myManageHook = composeAll
 myLayout = tiled ||| Mirror tiled ||| noBorders Full ||| threeCol
   where
     threeCol = magnifiercz' 1.3 $ ThreeColMid nmaster delta ratio
-    tiled    = spacingRaw False (Border 14 0 14 0) True (Border 0 14 0 14) True $ Tall nmaster delta ratio
+    tiled    = spacingRaw False (Border 14 0 14 0) True (Border 0 14 0 14) True
+             $ Tall nmaster delta ratio
     nmaster  = 1      -- Default number of windows in the master pane
     ratio    = 1/2    -- Default proportion of screen occupied by master pane
     delta    = 3/100  -- Percent of screen to increment by when resizing panes

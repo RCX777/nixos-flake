@@ -5,11 +5,13 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
 local servers = {
-  "clangd", -- C & C++
-  "pylsp",  -- Python
-  "nixd",   -- Nix
-  "hls",    -- Haskell
+  "clangd",
+  --"pylsp",
+  "pyright",
+  "nixd",
+  "hls",
   "rust_analyzer",
+  "bashls"
 }
 
 -- lsps with default config

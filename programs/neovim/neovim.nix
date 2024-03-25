@@ -29,6 +29,13 @@
 
       # Rust
       rust-analyzer
+
+      # Python
+      python311Packages.python-lsp-server
+      nodePackages.pyright
+
+      # Bash
+      nodePackages.bash-language-server
     ];
   };
 }

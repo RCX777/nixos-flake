@@ -47,11 +47,6 @@
       fsType = "vfat";
     };
 
-  fileSystems."/home" =
-    { device = "/dev/disk/by-label/NIXAUX";
-      fsType = "ext4";
-    };
-
   swapDevices = [ ];
 
   hardware = {

@@ -98,6 +98,12 @@
       ERRFILE = "${XDG_CACHE_HOME}/X11/xsession-errors";
 
       HISTFILE = "${XDG_STATE_HOME}/bash/history";
+
+      PYTHON_HISTORY = "${XDG_STATE_HOME}/python/history";
+      PYTHONPYCACHEPREFIX = "${XDG_CACHE_HOME}/python";
+      PYTHONUSERBASE = "${XDG_DATA_HOME}/python";
+      IPYTHONDIR = "${XDG_CONFIG_HOME}/ipython";
+      JUPYTER_CONFIG_DIR = "${XDG_CONFIG_HOME}/jupyter";
     };
   };
 

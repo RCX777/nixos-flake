@@ -12,7 +12,7 @@
 
         openssh.authorizedKeys.keys = [ ];
 
-        extraGroups = [ "wheel" "networkmanager" "vboxusers" ];
+        extraGroups = [ "wheel" "networkmanager" "vboxusers" "dialout" ];
       };
     };
   };

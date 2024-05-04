@@ -28,8 +28,8 @@
       fade-delta = 5;
 
       # Borders
-      corner-radius = 12.0;
-      round-borders = 1;
+      # corner-radius = 12.0;
+      # round-borders = 1;
 
       # Specific window rules
       wintypes = {

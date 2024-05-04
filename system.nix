@@ -76,6 +76,9 @@
       man-pages
       man-pages-posix
       sbctl
+
+      # TODO: somehow move this to `home.nix` in the future
+      inputs.pixgrab.packages.${system}.default
     ];
 
     sessionVariables = rec {

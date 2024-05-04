@@ -11,12 +11,14 @@
 (include "./widgets/battery.yuck")
 (include "./widgets/sound.yuck")
 
+(defpoll bar-color :interval "0.00606060606060s" "pixgrab 959 28")
+
 (
     defwindow bar-container
     :monitor 0
-    :geometry (geometry :x "0%" :y "9px" :width "1892px" :height "24px" :anchor "top center")
+    :geometry (geometry :x "0%" :y "0px" :width "1920px" :height "24px" :anchor "top center")
     :stacking "bg"
-    :reserve (struts :distance "33px" :side "top")
+    :reserve (struts :distance "28px" :side "top")
     :windowtype "dock"
     :wm-ignore false
     (bar)
@@ -29,6 +31,7 @@
         :class "bar"
         :orientation "h"
         :space-evenly true
+        :style "background-color: ${bar-color};"
         (left)
         (center)
         (right)

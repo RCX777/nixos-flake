@@ -12,6 +12,11 @@
 
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    pixgrab = {
+      url = "github:RCX777/pixgrab";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -19,6 +24,7 @@
     nixpkgs,
     home-manager,
     lanzaboote,
+    pixgrab,
     ...
   } @inputs: let
     inherit (self) outputs;

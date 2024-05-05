@@ -11,7 +11,8 @@
 (include "./widgets/battery.yuck")
 (include "./widgets/sound.yuck")
 
-(defpoll bar-color :interval "0.00606060606060s" "pixgrab 959 28")
+(defpoll bar-color :interval "0.00606060606060s"
+    "pixgrab mc 540 28 660 28 780 28 900 28 1020 28 1140 28 1260 28 1380 28")
 
 (
     defwindow bar-container

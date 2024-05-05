@@ -9,6 +9,6 @@
     enableBashIntegration = true;
     enableSshSupport      = true;
 
-    pinentryFlavor = "tty";
+    # pinentryFlavor = "tty";
    };
 }

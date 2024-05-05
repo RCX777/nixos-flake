@@ -1,4 +1,4 @@
-{ inputs, custom, lib, config, pkgs, ... }: {
+{ ... }: {
   programs.direnv = {
     enable     = true;
     

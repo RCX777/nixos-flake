@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }: {
+{ pkgs, ... }: {
   # Enable the default shell
   programs.zsh.enable = true;
 

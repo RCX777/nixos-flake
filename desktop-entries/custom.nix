@@ -1,4 +1,4 @@
-{ inputs, custom, lib, config, pkgs, ... }: {
+{ config, ... }: {
   home.file = {
     ".local/share/applications/nvidia-settings.desktop".text = ''
       [Desktop Entry]

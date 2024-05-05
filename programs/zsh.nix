@@ -1,12 +1,16 @@
-{ inputs, lib, config, pkgs, ... }: {
+{ config, ... }: {
   programs.zsh = {
     enable = true;
 
-    enableCompletion         = true;
-    enableAutosuggestions    = true;
-    enableVteIntegration     = true;
+    enableCompletion     = true;
+    enableVteIntegration = true;
+
     syntaxHighlighting = {
         enable = true;
+    };
+
+    autosuggestion = {
+      enable = true;
     };
 
     dotDir = ".config/zsh"; # Assumes that $HOME is the parent dir of `.config`

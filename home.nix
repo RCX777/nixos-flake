@@ -1,4 +1,4 @@
-{ inputs, custom, lib, config, pkgs, ... }: {
+{ pkgs, ... }: {
   # You can import other home-manager modules here
   imports = [
     ## Programs ##

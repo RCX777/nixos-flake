@@ -1,5 +1,5 @@
 { ... }: {
-  services.xserver.displayManager.sddm = {
+  services.displayManager.sddm = {
     enable = true;
     settings = {
       X11 = {

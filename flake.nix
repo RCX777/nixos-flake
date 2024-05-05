@@ -24,7 +24,6 @@
     nixpkgs,
     home-manager,
     lanzaboote,
-    pixgrab,
     ...
   } @inputs: let
     inherit (self) outputs;

@@ -3,7 +3,6 @@
 { inputs, lib, config, pkgs, ... }: {
   programs.gnupg.agent = {
     enable            = true;
-    # pinentryFlavor    = "tty";
     enableSSHSupport  = true;
     enableExtraSocket = true;
   };

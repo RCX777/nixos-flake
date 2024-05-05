@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }: {
+{ pkgs, ... }: {
   home.sessionVariables = {
     EDITOR = "${pkgs.helix}/bin/hx";
   };

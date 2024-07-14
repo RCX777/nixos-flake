@@ -96,3 +96,6 @@ opacity = 0.94
 x = 0
 y = 0
 
+[shell]
+program = "tmux"
+

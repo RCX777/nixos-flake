@@ -1,6 +1,4 @@
-{ config, lib, pkgs, modulesPath, ... }:
-
-{
+{ config, lib, pkgs, modulesPath, ... }: {
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
@@ -9,14 +7,23 @@
     kernelPackages = pkgs.linuxPackages_latest;
 
     initrd = {
-      availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" ]; 
+      availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
       kernelModules = [ ];
     };
 
-    kernelModules = [ "kvm-intel" "nvidia" "nvidia_uvm" "nvidia_drm" "nvidia_modeset" ];
+    kernelModules = [
+      "kvm-intel"
+
+      "nvidia"
+      "nvidia_modeset"
+      "nvidia_uvm"
+      "nvidia_drm"
+    ];
     extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
 
     kernelParams = [
+      "intel_iommu=on"
+      "iommu=pt"
       "nosgx"
       "nvidia.NVreg_InitializeSystemMemoryAllocations=0"
       "nvidia.NVreg_EnableStreamMemOPs=1"
@@ -53,19 +60,20 @@
   swapDevices = [ ];
 
   hardware = {
+    enableAllFirmware = true;
     cpu.intel = {
       updateMicrocode = true;
     };
 
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport32Bit = true;
+      enable32Bit = true;
     };
 
     nvidia = {
       open = false;
 
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
 
       modesetting.enable = true;
 

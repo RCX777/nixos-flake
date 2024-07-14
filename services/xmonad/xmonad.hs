@@ -39,13 +39,13 @@ main = do
         , workspaces         = myWorkspaces
         }
         `additionalKeysP`
-        [ ("M-w"  , spawn "firefox"                       )
+        [ ("M-w"  , spawn "chromium"                      )
         , ("M-e"  , spawn "alacritty"                     )
         , ("M-b"  , sendMessage ToggleStruts              )
         , ("M-r"  , spawn "killall eww; xmonad --restart" )
         , ("M-`"  , spawn "rofi -show drun"               )
         , ("M-f",   withFocused toggleFloat               )
-        , ("<Print>", spawn "flameshot gui"               )
+        , ("<Print>", spawn "scrot $HOME/Desktop/media/images/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png -s -e --silent 'xclip -selection clipboard -t image/png -i $f'")
         , ("<XF86AudioLowerVolume>", spawn "pamixer -d 2" )
         , ("<XF86AudioRaiseVolume>", spawn "pamixer -i 2" )
         , ("M-<Esc>", spawn "eww open --toggle lockscreen")
@@ -80,9 +80,11 @@ myStartupHook = do
     -- Cleans ~
     spawnOnce "rm -f $HOME/.xsession-errors*"
     -- Sets the background
-    spawnOnce "feh --no-fehbg --bg-scale ~/Media/Images/Wallpapers/forest.png"
+    spawnOnce "feh --no-fehbg --bg-scale ~/Desktop/media/images/wallpapers/forest.png"
     -- Sets up my multiple screens (somehow doesn't break when the second screen is not connected)
-    spawnOnce "xrandr --output HDMI-0 --mode 1920x1080 --rate 165 --primary"
+    spawnOnce "xrandr --output DP-0   --primary --left-of HDMI-0"
+    spawnOnce "xrandr --output DP-0   --mode 2560x1440 --rate 240"
+    spawnOnce "xrandr --output HDMI-0 --mode 1920x1080 --rate 165"
 
 myManageHook :: ManageHook
 myManageHook = composeAll

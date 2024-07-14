@@ -3,7 +3,7 @@
     enable = true;
 
     viAlias  = true;
-    vimAlias = true; 
+    vimAlias = true;
   };
 
   home = {
@@ -32,7 +32,7 @@
 
       # Python
       python311Packages.python-lsp-server
-      nodePackages.pyright
+      pyright
 
       # Bash
       nodePackages.bash-language-server

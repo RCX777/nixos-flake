@@ -29,12 +29,14 @@
 
     # Web browser
     ./programs/firefox.nix
+    ./programs/chromium.nix
 
     # Shell prompt
     ./programs/starship.nix
 
     # Terminal productivity tools
     ./programs/zoxide.nix
+    ./programs/tmux.nix
 
     ## Check `services/xmonad/xmonad.nix` for details about this `hacky` approach
     ./services/xmonad/xmonad-config-hack.nix
@@ -62,7 +64,7 @@
       # Gaming-related
       prismlauncher
       (steam.override { extraPkgs = (pkgs: [ gamemode mangohud ]); })
-      (lutris.override { extraPkgs = (pkgs: [ gamemode mangohud ]); })
+      (lutris.override { extraPkgs = (pkgs: [ gamescope gamemode mangohud ]); })
 
       # Utilities
       lsd
@@ -86,7 +88,7 @@
       fragments
 
       # Screenshot
-      flameshot
+      scrot
 
       # WM/X11 related
       wmctrl
@@ -105,7 +107,7 @@
     ];
 
     file = {
-      "Media/Images/Wallpapers" = {
+      "Desktop/media/images/wallpapers" = {
         source    = ./wallpapers;
         recursive = true;
       };

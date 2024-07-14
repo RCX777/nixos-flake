@@ -1,7 +1,7 @@
 (
     defwindow lockscreen
     :monitor 0
-    :geometry (geometry :x "0%" :y "0%" :width "1920px" :height "1080px" :anchor "top left")
+    :geometry (geometry :x "0%" :y "0%" :width "100%" :height "100%" :anchor "top left")
     :stacking "bg"
     :windowtype "dock"
     :wm-ignore false

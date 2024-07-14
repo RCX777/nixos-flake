@@ -28,7 +28,7 @@
 
           # Show a blinking cursor in the password input.
           show-input-cursor = false
-  
+
           # The text alignment for the password input. Possible values are:
           # "left" or "right"
           password-alignment = left
@@ -52,7 +52,7 @@
 
           # An absolute path to an optional background image.
           # The image will be displayed centered & unscaled.
-          background-image = "/home/rcx/Media/Images/Wallpapers/forest.png"
+          background-image = "/home/rcx/Desktop/media/images/wallpapers/forest.png"
 
           # The screen's background color.
           background-color = "#11111b"

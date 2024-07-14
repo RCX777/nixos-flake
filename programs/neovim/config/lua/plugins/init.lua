@@ -52,6 +52,18 @@ return {
     "mbbill/undotree",
     enable = true,
     lazy = false
-  }
+  },
+
+  {
+    "ntpeters/vim-better-whitespace",
+    enable = true,
+    lazy = false
+  },
+
+  {
+    "christoomey/vim-tmux-navigator",
+    enable = true,
+    lazy = false
+  },
 }
 

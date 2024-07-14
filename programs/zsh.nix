@@ -17,7 +17,7 @@
 
     history = {
       path = "${config.xdg.stateHome}/zsh/history";
-      save = 1000;
+      save = 16384;
     };
 
     shellAliases = {

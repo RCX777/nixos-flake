@@ -20,3 +20,11 @@ map("n", "<leader>y", "\"+Y", { desc = "Yank into `+` register" })
 map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], {
   desc = "Replace all occurences of word under cursor"
 })
+
+map("n", "<leader>a", "<cmd>StripWhitespace<CR>", { desc = "Strip whitespaces"})
+
+map("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>", { desc = "window left" })
+map("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>", { desc = "window right" })
+map("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>", { desc = "window down" })
+map("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>", { desc = "window up" })
+

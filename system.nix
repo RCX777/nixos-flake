@@ -10,9 +10,6 @@
     # (e.g. gnupg.agent, required for using GPG keys while doing SSH)
     ./programs/gnupg-agent.nix
 
-    # Tmux configuration
-    ./programs/tmux.nix
-
     # Services (xserver, picom, etc...)
     ./services/xserver.nix
     ./services/openssh.nix
@@ -42,6 +39,12 @@
     settings = {
       experimental-features = "nix-command flakes";
       auto-optimise-store   = true;
+    };
+
+    gc = {
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than +4";
     };
   };
 
@@ -120,22 +123,38 @@
   ];
 
   virtualisation = {
-      docker = {
+    libvirtd = {
+      enable = true;
+      qemu = {
+        package = pkgs.qemu_kvm;
+        runAsRoot = true;
+        swtpm.enable = true;
+        ovmf = {
           enable = true;
-          enableNvidia = true;
-          extraOptions = ''
-            --add-runtime nvidia=/run/current-system/sw/bin/nvidia-container-runtime
-          '';
+          packages = [(pkgs.OVMF.override {
+            secureBoot = true;
+            tpmSupport = true;
+          }).fd];
+        };
       };
+    };
+    spiceUSBRedirection.enable = true;
 
-      virtualbox.host = {
-          enable = true;
-          enableExtensionPack = true;
-      };
+    docker = {
+      enable = true;
+      enableNvidia = true;
+      extraOptions = ''
+        --add-runtime nvidia=/run/current-system/sw/bin/nvidia-container-runtime
+      '';
+    };
   };
 
-  programs.gamemode = {
-    enable = true;
+  programs = {
+    virt-manager.enable = true;
+
+    gamemode = {
+      enable = true;
+    };
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

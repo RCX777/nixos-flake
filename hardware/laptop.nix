@@ -50,6 +50,7 @@
   swapDevices = [ ];
 
   hardware = {
+    enableAllFirmware = true;
     cpu.intel = {
       updateMicrocode = true;
     };

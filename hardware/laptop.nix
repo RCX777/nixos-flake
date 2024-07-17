@@ -13,7 +13,15 @@
       kernelModules = [ ];
     };
 
-    kernelModules = [ "kvm-intel" "nvidia" "nvidia_uvm" "nvidia_drm" "nvidia_modeset" ];
+    kernelModules = [
+      "kvm-intel"
+
+      "nvidia"
+      "nvidia_modeset"
+      "nvidia_uvm"
+      "nvidia_drm"
+    ];
+
     extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
 
     kernelParams = [ "nosgx" ];

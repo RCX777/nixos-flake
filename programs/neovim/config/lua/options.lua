@@ -21,7 +21,7 @@ o.colorcolumn = "80,100,120"
 
 o.swapfile = false
 o.backup   = false
-o.undodir  = os.getenv("XDG_STATE_HOME") .. "./vim/undodir"
+o.undodir  = os.getenv("XDG_STATE_HOME") .. "/vim/undodir"
 o.undofile = true
 
 g.better_whitespace_ctermcolor = "red"

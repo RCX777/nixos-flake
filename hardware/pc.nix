@@ -62,7 +62,7 @@
   hardware = {
     enableAllFirmware = true;
     cpu.intel = {
-      updateMicrocode = true;
+      updateMicrocode = false;
     };
 
     graphics = {

@@ -51,8 +51,9 @@ main = do
         , ("M-<Esc>", spawn "eww open --toggle lockscreen")
         ]
         `additionalKeys`
-        [ ((mod4Mask, xK_KP_Multiply),  spawn "$XDG_CONFIG_HOME/xmonad/light.sh +")
-        , ((mod4Mask, xK_KP_Divide), spawn "$XDG_CONFIG_HOME/xmonad/light.sh -")
+        [ ((mod4Mask, xK_KP_Multiply), spawn "$XDG_CONFIG_HOME/xmonad/light.sh +")
+        , ((mod4Mask, xK_KP_Divide),   spawn "$XDG_CONFIG_HOME/xmonad/light.sh -")
+        , ((mod4Mask, xK_KP_Delete),   spawn "xrandr --output HDMI-0 --off")
         ]
 
 myPP :: PP
@@ -85,10 +86,6 @@ myStartupHook = do
     spawn "rm -f $HOME/.xsession-errors*"
     -- Sets the background
     spawn "feh --no-fehbg --bg-scale ~/Desktop/media/images/wallpapers/forest.png"
-    -- Sets up my multiple screens (somehow doesn't break when the second screen is not connected)
-    spawn "xrandr --output DP-0   --primary --left-of HDMI-0"
-    spawn "xrandr --output DP-0   --mode 2560x1440 --rate 240"
-    spawn "xrandr --output HDMI-0 --mode 1920x1080 --rate 165"
 
 myManageHook :: ManageHook
 myManageHook = composeAll

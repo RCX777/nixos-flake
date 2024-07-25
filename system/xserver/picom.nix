@@ -22,7 +22,7 @@
         background = true;
         strength   = 8;
       };
-       
+
       # Fading
       fading = true;
       fade-delta = 5;
@@ -36,7 +36,7 @@
         tooltip = { opacity = 0.8; };
       };
     };
- 
+
     backend = "glx";
   };
 }

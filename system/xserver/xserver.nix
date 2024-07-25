@@ -1,7 +1,7 @@
 { ... }: {
   imports = [
     ./xmonad/xmonad.nix
-    ./lightdm.nix
+    ./picom.nix
   ];
 
   services.xserver = {

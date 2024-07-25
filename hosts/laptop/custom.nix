@@ -1,5 +1,5 @@
 { lib, ... }: {
-  
+
   # TODO: for some reason lightdm is not working properly on pc
   #       using sddm is a workaround! fix in the future!
   services.displayManager.sddm.enable = lib.mkForce false;

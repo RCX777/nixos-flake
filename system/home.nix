@@ -3,46 +3,35 @@
   imports = [
     ## Programs ##
     #
-    # User shell & config
-    ./programs/zsh.nix
-    ./programs/direnv.nix
+    ../programs/shells/zsh.nix
+    # ../programs/shells/bash.nix
 
-    # Code versioning system
-    ./programs/git.nix
-
+    ../programs/cli/direnv.nix
+    ../programs/cli/git.nix
     # Note! Main gpg key is also used as ssh via gpg-agent
-    ./programs/gpg.nix
-    ./programs/ssh.nix
+    ../programs/cli/gpg.nix
+    ../programs/cli/ssh.nix
+    ../programs/cli/starship.nix
+    ../programs/cli/zoxide.nix
+    ../programs/cli/tmux.nix
 
-    # Application launcher (dmenu equivalent)
-    ./programs/rofi/rofi.nix
+    ../programs/terminals/alacritty/alacritty.nix
 
-    # Top-bar & widgets
-    ./programs/eww/eww.nix
+    ../programs/editors/helix.nix
+    ../programs/editors/neovim/neovim.nix
 
-    # Terminal emulator
-    ./programs/alacritty/alacritty.nix
+    ../programs/browsers/firefox.nix
+    ../programs/browsers/chromium.nix
 
-    # Text Editors
-    ./programs/helix.nix
-    ./programs/neovim/neovim.nix
+    ../programs/desktop/rofi/rofi.nix
+    ../programs/desktop/eww/eww.nix
 
-    # Web browser
-    ./programs/firefox.nix
-    ./programs/chromium.nix
-
-    # Shell prompt
-    ./programs/starship.nix
-
-    # Terminal productivity tools
-    ./programs/zoxide.nix
-    ./programs/tmux.nix
-
-    ## Check `services/xmonad/xmonad.nix` for details about this `hacky` approach
-    ./services/xmonad/xmonad-config-hack.nix
+    # used such that the xmonad configuration files are included
+    # via the `home.file.<path>.source`
+    ./xserver/xmonad/xmonad-config-hack.nix
 
     # Custom ".desktop" files
-    ./desktop-entries/custom.nix
+    ./desktop-entries.nix
   ];
 
   home = {
@@ -108,7 +97,7 @@
 
     file = {
       "Desktop/media/images/wallpapers" = {
-        source    = ./wallpapers;
+        source    = ../wallpapers;
         recursive = true;
       };
     };

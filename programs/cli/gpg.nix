@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }: {
+{ ... }: {
   programs.gpg = {
     enable = true;
   };
@@ -10,3 +10,4 @@
     enableSshSupport      = true;
    };
 }
+

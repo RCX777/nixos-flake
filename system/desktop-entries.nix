@@ -11,7 +11,7 @@
 
       Exec=nvidia-settings --config=${config.xdg.configHome}/nvidia/settings
 
-      Terminal=false 
+      Terminal=false
     '';
   };
 }

@@ -3,19 +3,18 @@
 
 { inputs, lib, config, pkgs, ... }: {
   imports = [
-    # System users (user-specific configuration is stored in `home.nix`)
     ./users.nix
 
-    # System programs configuration
-    # (e.g. gnupg.agent, required for using GPG keys while doing SSH)
-    ./programs/gnupg-agent.nix
+    ./display-managers/lightdm.nix
 
-    # Services (xserver, picom, etc...)
-    ./services/xserver.nix
-    ./services/openssh.nix
-    ./services/picom.nix
-    ./services/pipewire.nix
-    ./services/pcscd.nix
+    ./xserver/xserver.nix
+
+    ./sound/pipewire.nix
+
+    ./openssh.nix
+    ./pcscd.nix
+
+    ../programs/cli/gnupg-agent.nix
   ];
 
   nixpkgs = {

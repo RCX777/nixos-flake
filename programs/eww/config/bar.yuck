@@ -12,16 +12,16 @@
 (include "./widgets/sound.yuck")
 
 (defpoll bar-color-l :interval "0.0242424s"
-    "pixgrab mc 40 28 180 28 300 28 420 28 540 28 660 28 780 28 900 28")
+    "pixgrab mc 40 30 180 30 300 30 420 30 540 30 660 30 780 30 900 30")
 (defpoll bar-color-r :interval "0.0242424s"
-    "pixgrab mc 1020 28 1140 28 1260 28 1380 28 1500 28 1620 28 1740 28 1860 28")
+    "pixgrab mc 1020 30 1140 30 1260 30 1380 30 1500 30 1620 30 1740 30 1860 30")
 
 (
     defwindow bar-container
     :monitor 0
-    :geometry (geometry :x "0%" :y "0px" :width "100%" :height "24px" :anchor "top center")
+    :geometry (geometry :x "0%" :y "0px" :width "100%" :height "30px" :anchor "top center")
     :stacking "bg"
-    :reserve (struts :distance "28px" :side "top")
+    :reserve (struts :distance "30px" :side "top")
     :windowtype "dock"
     :wm-ignore false
     (bar)

@@ -23,6 +23,8 @@
     shellAliases = {
       # Alternatives to standard utilities
       ls    = "lsd";
+      l     = "lsd -Alg";
+      ll    = "lsd -lg";
       grep  = "rg";
       ps    = "procs";
       find  = "fd";

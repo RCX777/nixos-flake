@@ -5,7 +5,7 @@
   imports = [
     ./users.nix
 
-    ./display-managers/lightdm.nix
+    ./display-managers/lightdm/lightdm.nix
 
     ./xserver/xserver.nix
 

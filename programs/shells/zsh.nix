@@ -16,8 +16,10 @@
     dotDir = ".config/zsh"; # Assumes that $HOME is the parent dir of `.config`
 
     history = {
-      path = "${config.xdg.stateHome}/zsh/history";
-      save = 16384;
+      path       = "${config.xdg.stateHome}/zsh/history";
+      save       = 16384;
+      share      = true;
+      ignoreDups = true;
     };
 
     shellAliases = {
@@ -36,6 +38,10 @@
       flake = "sudo nixos-rebuild switch --upgrade --flake";
     };
 
+    initExtraFirst = ''
+      [ -z "''${WAYLAND_DISPLAY}" ] && [ "''${XDG_VTNR}" -eq 1 ] &&\
+        exec Hyprland > /dev/null
+    '';
     initExtra = ''
       # Sets up the prompt
       PROMPT="%F{121}%n%f@%F{121}%m%f:%F{147}%~/ %(?.%F{121}.%F{red})%#%f "

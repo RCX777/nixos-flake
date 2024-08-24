@@ -19,7 +19,6 @@
       "nvidia_uvm"
       "nvidia_drm"
     ];
-    extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
 
     kernelParams = [
       "intel_iommu=on"
@@ -73,7 +72,7 @@
     nvidia = {
       open = false;
 
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
 
       modesetting.enable = true;
 

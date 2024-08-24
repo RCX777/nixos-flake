@@ -1,6 +1,6 @@
-{ ... }: {
+{ config, ... }: {
   services.picom = {
-    enable = true;
+    enable = config.services.xserver.enable;
 
     settings = {
       vsync = false;

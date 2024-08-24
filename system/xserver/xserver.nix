@@ -5,7 +5,7 @@
   ];
 
   services.xserver = {
-    enable = true;
+    enable = false;
     videoDrivers = [ "nvidia" ];
 
     extraConfig = ''

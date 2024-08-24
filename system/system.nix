@@ -8,6 +8,7 @@
     ./display-managers/lightdm/lightdm.nix
 
     ./xserver/xserver.nix
+    ./wayland/hyprland.nix
 
     ./sound/pipewire.nix
 

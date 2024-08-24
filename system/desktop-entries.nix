@@ -13,6 +13,19 @@
 
       Terminal=false
     '';
+    ".local/share/applications/discord.desktop".text = ''
+      [Desktop Entry]
+
+      Type=Application
+
+      Name=Discord
+
+      Comment=Voice and text chat, wrapped for Wayland
+
+      Exec=discord --enable-features=UseOzonePlatform --ozone-platform-hint=auto
+
+      Terminal=false
+    '';
   };
 }
 

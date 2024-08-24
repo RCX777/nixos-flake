@@ -96,7 +96,7 @@
     ];
 
     file = {
-      "Desktop/media/images/wallpapers" = {
+      "desktop/media/images/wallpapers" = {
         source    = ../wallpapers;
         recursive = true;
       };
